@@ -1,8 +1,6 @@
 # Smarthome Stuff 
-Nothing But Smarthome Stuff - Stuff I have done at home and there is more stuff that I want to do...
 
-
-Some of the home automation stuff I'd like to do:
+<b>Stuff I have done:</b>
 
 . Turn ON outdoor lights at dusk, and turn them off at dawn
 
