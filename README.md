@@ -1,6 +1,6 @@
 # Smarthome Stuff 
 
-<b>Stuff I have done:</b>
+**Stuff I have done:**
 
 . Turn ON outdoor lights at dusk, and turn them off at dawn
 
