@@ -1,4 +1,4 @@
-# Smarthome Stuff 
+# Smart Home Stuff 
 
 **Stuff I have done:**
 
