@@ -1,0 +1,6 @@
+- alias: Heal Z-Wave Network
+  trigger:
+    platform: time
+    after: '4:30:00'
+  action:
+    service: zwave.heal_network
