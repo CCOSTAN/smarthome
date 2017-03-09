@@ -1,0 +1,7 @@
+- platform: command_line
+  name: CPU Temperature
+  command: cat /sys/class/thermal/thermal_zone0/temp
+  unit_of_measurement: 'F'
+  value_template: '{{ (value|int / 1000 * 1.8 + 32)|round(1) }}'
+
+- platform: cpuspeed
