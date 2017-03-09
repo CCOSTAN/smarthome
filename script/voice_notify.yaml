@@ -1,0 +1,20 @@
+voice_notify:
+  sequence:
+    - service: tts.amazon_polly_say
+      entity_id: media_player.gstreamer
+      data_template:
+        message: >
+          {% if now().strftime("%H")|int < 12 %}
+          "Good morning.
+          {% elif now().strftime("%H")|int < 18 %}
+          "Good afternoon.
+          {% else %}
+          "Good evening.
+          {% endif %}
+          {{ value1 }}"
+        cache: true
+    # - service: ifttt.trigger
+      # data_template:
+        # event: "Smart Home"
+        # value1: >
+          # {{ value1 }}
