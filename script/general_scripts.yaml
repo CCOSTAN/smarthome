@@ -1,0 +1,19 @@
+notify_home_status:
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: /home
+        payload: 'STATUS'
+script_tv_backlight_on:
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: /home/tv/backlight
+        payload: 'ON'
+script_tv_backlight_off:
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: /home/tv/backlight
+        payload: 'OFF'
+

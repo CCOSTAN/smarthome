@@ -1,0 +1,4 @@
+ifttt_notify:
+  sequence:
+    - service: ifttt.trigger
+      data_template: {"event":"Smart Home", "value1":"{{ value1 }}", "value2":" {{ value2 }}"}
