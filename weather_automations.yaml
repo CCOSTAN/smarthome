@@ -1,0 +1,133 @@
+#
+# Weather related automations goes here
+#
+- alias: Alert Daily Weather
+  trigger:
+    platform: time
+    after: '05:25:00'
+  condition:
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+        - sat
+        - sun
+  action:
+    - service: script.ifttt_notify
+      data_template:
+        value1: "Today's Weather High: {{states('sensor.dark_sky_daily_high_temperature')}} F, Feels like: {{states('sensor.dark_sky_daily_high_apparent_temperature')}} F. Today's Weather Low: {{states('sensor.dark_sky_daily_low_temperature')}} F, Feels like: {{states('sensor.dark_sky_daily_low_apparent_temperature')}} F."
+        value2: ""
+    - service: script.ifttt_notify
+      data_template:
+        value1: "Today's Summary: {{states('sensor.dark_sky_daily_summary')}}"
+        value2: ""
+    - service: mqtt.publish
+      data_template:
+        topic: !secret mqtt_announcement_topic
+        payload: "Today's weather report. Today's High temperature is {{states('sensor.dark_sky_daily_high_temperature')}} degrees, and feels like: {{states('sensor.dark_sky_daily_high_apparent_temperature')}} degrees. Today's Weather low temperature is {{states('sensor.dark_sky_daily_low_temperature')}} degrees, and feels like {{states('sensor.dark_sky_daily_low_apparent_temperature')}} degrees fahrenheit"
+
+# Alert on High Wind Speeds
+#
+# - alias: Alert Wind Speeds Tollerable
+  # trigger:
+    # platform: state
+    # entity_id: sensor.dark_sky_wind_speed
+  # condition:
+    # condition: and
+    # conditions:
+      # - condition: template
+        # value_template: "{{ states('sensor.dark_sky_wind_speed') | int > 15 }}"
+      # - condition: template
+        # value_template: "{{ states('sensor.dark_sky_wind_speed') | int < 25 }}"
+  # action:
+    # - service: script.ifttt_notify
+      # data_template:
+        # value1: "Current Wind Speed is : {{states('sensor.dark_sky_wind_speed')}} mph."
+        # value2: ""
+
+# Reminder to keep trash cans inside
+- alias: Alert Wind Speeds Medium
+  trigger:
+    platform: state
+    entity_id: sensor.dark_sky_wind_speed
+  condition:
+    condition: and
+    conditions:
+      - condition: template
+        value_template: "{{ states('sensor.dark_sky_wind_speed') | int > 24 }}"
+      - condition: template
+        value_template: "{{ states('sensor.dark_sky_wind_speed') | int < 40 }}"
+  action:
+    - service: script.ifttt_notify
+      data_template:
+        value1: "HEAVY WINDS!!! Current Wind Speed is : {{states('sensor.dark_sky_wind_speed')}} mph! Be VERY careful outdoors!"
+        value2: ""
+    - service: mqtt.publish
+      data_template:
+        topic: !secret mqtt_announcement_topic
+        payload: "Warning! Heavy winds outside. The current wind speed is {{states('sensor.dark_sky_wind_speed')}} miles per hour. Please be careful outdoors!"
+
+# Reminder to keep trash cans inside
+- alias: Alert Wind Speeds High
+  trigger:
+    platform: state
+    entity_id: sensor.dark_sky_wind_speed
+  condition:
+    condition: and
+    conditions:
+      - condition: template
+        value_template: "{{ states('sensor.dark_sky_wind_speed') | int > 39 }}"
+      - condition: template
+        value_template: "{{ states('sensor.dark_sky_wind_speed') | int < 70 }}"
+  action:
+    - service: script.ifttt_notify
+      data_template:
+        value1: "STAY INDOORS... HEAVY WINDS OUTSIDE!!! Wind Speed is : {{states('sensor.dark_sky_wind_speed')}} MPH!"
+        value2: ""
+    - service: mqtt.publish
+      data_template:
+        topic: !secret mqtt_announcement_topic
+        payload: "Warning! Warning! Warning! Extreme heavy winds outside. The current wind speed is {{states('sensor.dark_sky_wind_speed')}} miles per hour. Please do not go outside. Stay indoors in the basement!"
+
+# Reminder to keep trash cans inside
+- alias: Alert Wind Speeds Hurricane
+  trigger:
+    platform: state
+    entity_id: sensor.dark_sky_wind_speed
+  condition:
+    condition: and
+    conditions:
+      - condition: template
+        value_template: "{{ states('sensor.dark_sky_wind_speed') | int > 69 }}"
+      - condition: template
+        value_template: "{{ states('sensor.dark_sky_wind_speed') | int < 100 }}"
+  action:
+    - service: script.ifttt_notify
+      data_template:
+        value1: "IT IS HURRICANE OUTDIDE. GO INTO THE BASEMENT NOW!!! Wind Speed is : {{states('sensor.dark_sky_wind_speed')}} MPH!"
+        value2: ""
+    - service: mqtt.publish
+      data_template:
+        topic: !secret mqtt_announcement_topic
+        payload: "Warning! Warning! Warning! You must be a fool to go outside. Think about your family once before you step outside. The current wind speed is {{states('sensor.dark_sky_wind_speed')}} miles per hour. Please do not go outside. Stay indoors in the basement! There is a hurricane outside. Take shelter!"
+
+# Reminder to keep trash cans inside
+- alias: High Wind Speed Flash Lights
+#  hide_entity: True
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.dark_sky_wind_speed
+      above: 30
+  action:
+    - service: light.turn_on
+      entity_id:
+        - group.all_lights
+      data:
+        flash: short
+    - service: script.ifttt_notify
+      data_template:
+        value1: "HEAVY WINDS!!! Current Wind Speed is : {{states('sensor.dark_sky_wind_speed')}} mph! Be VERY careful outdoors!"
+        value2: ""
