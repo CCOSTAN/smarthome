@@ -1,0 +1,42 @@
+- alias: Upstairs Motion ON
+  trigger:
+    platform: state
+    entity_id: binary_sensor.aeotec_zw074_multisensor_gen5_sensor_3_0
+    from: 'off'
+    to: 'on'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.master_bedroom_1
+        rgb_color: [224,175,102]
+        brightness: 10
+        color_temp: 366
+    - service: light.turn_on
+      data:
+        entity_id: light.master_bedroom_2
+        rgb_color: [224,175,102]
+        brightness: 10
+        color_temp: 366
+
+- alias: Upstairs Motion OFF
+  trigger:
+    platform: state
+    entity_id: binary_sensor.aeotec_zw074_multisensor_gen5_sensor_3_0
+    from: 'on'
+    to: 'off'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.master_bedroom_1
+    - service: light.turn_off
+      data:
+        entity_id: light.master_bedroom_2
+

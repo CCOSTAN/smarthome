@@ -1,0 +1,22 @@
+- alias: Welcome Family
+  trigger:
+    - platform: state
+      entity_id:
+        - device_tracker.mallika_mallika
+        - device_tracker.suresh_suresh
+        - device_tracker.srinika_srinika
+        - device_tracker.hasika_hasika
+      from: 'not_home'
+      to: 'home'
+      for: '00:02:00'
+  action:
+    - service: mqtt.publish
+      data_template:
+        topic: !secret mqtt_announcement_topic
+        payload: >
+          Welcome home, {{ trigger.entity_id.split('.')[1].split('_')[1] }}!
+    - service: script.ifttt_notify
+      data_template:
+        value1: >
+          Welcome home, {{ trigger.entity_id.split('.')[1].split('_')[1] }}!
+        value2: ""

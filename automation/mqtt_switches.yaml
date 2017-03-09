@@ -1,0 +1,83 @@
+- alias: Turn Simplisafe ON
+  trigger:
+    - platform: state
+      entity_id: switch.home_security
+      to: 'on'
+  action:
+    - service: alarm_control_panel.alarm_arm_home
+      data:
+        entity_id: alarm_control_panel.simplisafe
+    - service: mqtt.publish
+      data:
+        topic: /home/simplisafe
+        payload: 'on'
+        retain: true
+        
+- alias: Turn Simplisafe Off
+  trigger:
+    - platform: state
+      entity_id: switch.home_security
+      to: 'off'
+  action:
+    - service: alarm_control_panel.alarm_disarm
+      data:
+        entity_id: alarm_control_panel.simplisafe
+    - service: mqtt.publish
+      data:
+        topic: /home/simplisafe
+        payload: 'off'
+        retain: true
+
+- alias: Turn TV ON
+  trigger:
+    - platform: state
+      entity_id: switch.tv
+      to: 'on'
+  action:
+    - service: media_player.turn_on
+      data:
+        entity_id: media_player.sharp_tv
+    - service: mqtt.publish
+      data:
+        topic: /home/tv
+        payload: 'on'
+        retain: true
+
+- alias: Turn TV OFF
+  trigger:
+    - platform: state
+      entity_id: switch.tv
+      to: 'off'
+  action:
+    - service: media_player.turn_off
+      data:
+        entity_id: media_player.sharp_tv
+    - service: mqtt.publish
+      data:
+        topic: /home/tv
+        payload: 'off'
+        retain: true
+
+- alias: Turn TV Backlights ON
+  trigger:
+    - platform: state
+      entity_id: switch.tv_backlight
+      to: 'on'
+  action:
+    - service: mqtt.publish
+      data:
+        topic: /home/tv/backlight
+        payload: 'on'
+        retain: true
+
+- alias: Turn TV Backlights OFF
+  trigger:
+    - platform: state
+      entity_id: switch.tv_backlight
+      to: 'off'
+  action:
+    - service: mqtt.publish
+      data:
+        topic: /home/tv/backlight
+        payload: 'off'
+        retain: true

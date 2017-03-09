@@ -1,0 +1,20 @@
+- alias: Status Updates To MQTT
+  trigger:
+    platform: mqtt
+    topic: /home
+    payload: 'STATUS'
+  action:
+    - service: mqtt.publish
+      data_template:
+        topic: /home/status/
+        payload: 'Security System: {{ states("alarm_control_panel.simplisafe") | upper }}, Kitchen Light: {{ states("light.dinette") | upper }}, Backyard Light: {{ states("switch.wemobackyardlightswitch") | upper }}, Front Porch Light: {{ states("switch.wemofrontporchlightswitch") | upper }}, Front Room Light: {{ states("switch.wemoswitch1") | upper }}, Family Room Lights: {{ states("group.family_room_lights") | upper }}'
+
+- alias: Notify Status
+  trigger:
+    platform: mqtt
+    topic: /home/status/
+  action:
+    - service: ifttt.trigger
+      data_template:
+        event: "Smart Home"
+        value1: '{{ trigger.payload }}'

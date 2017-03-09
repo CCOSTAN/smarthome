@@ -1,0 +1,90 @@
+# - alias: Light Colour - Update
+  # sequence:
+    # - delay: 00:00:01
+    # # - service: script.turn_on
+      # # data:
+        # # entity_id: script.lights_check_whites
+    # # - delay: 00:00:01
+    # - service: light.turn_on
+      # data_template:
+        # entity_id: >-
+          # {% for light in states.light | rejectattr("attributes.is_hue_group") | selectattr("attributes.rgb_color") %}
+            # {%- if not(loop.first) -%}, {% endif %}
+            # {{- light.entity_id -}}
+          # {%- endfor %}
+        # brightness: '{{ states.input_slider.brightness.state | int }}'
+        # rgb_color: ['{{ states.input_slider.red.state | int }}', '{{ states.input_slider.green.state | int }}', '{{ states.input_slider.blue.state | int }}']
+        # color_temp: '{{ states.input_slider.temperature.state | int }}'
+    # - service: light.turn_on
+      # data_template:
+        # entity_id: >-
+          # {% for light in states.light | rejectattr("attributes.is_hue_group") | rejectattr("attributes.rgb_color") | selectattr("attributes.color_temp") %}
+            # {%- if not(loop.first) -%}, {% endif %}
+            # {{- light.entity_id -}}
+          # {%- endfor %}
+        # brightness: '{{ states.input_slider.brightness.state | int }}'
+        # color_temp: '{{ states.input_slider.temperature.state | int }}'
+
+- alias: Animate Master Bedroom Colors
+  trigger:
+    platform: time
+    seconds: '/5'
+  condition:
+    - condition: state
+      entity_id: input_boolean.animate_upstairs_lights
+      state: 'on'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: group.master_bedroom_lights
+        transition: 5
+        brightness: 255
+        color_temp: 366
+      data_template:
+        rgb_color: ['{{ "{0:d}".format(range(0, 255)|random) }}' , '{{ "{0:d}".format(range(0, 255)|random) }}', '{{ "{0:d}".format(range(0, 255)|random) }}']
+
+- alias: Restore Masterbedroom Lights
+  trigger:
+    platform: state
+    entity_id: input_boolean.animate_upstairs_lights
+    to: 'off'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: group.master_bedroom_lights
+        transition: 5
+        rgb_color: [224,175,102]
+        brightness: 10
+        color_temp: 366
+
+- alias: Animate Familyroom Colors
+  trigger:
+    platform: time
+    seconds: '/5'
+  condition:
+    - condition: state
+      entity_id: input_boolean.animate_downstairs_lights
+      state: 'on'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: group.family_room_lights
+        transition: 5
+        brightness: 255
+        color_temp: 366
+      data_template:
+        rgb_color: ['{{ "{0:d}".format(range(0, 255)|random) }}' , '{{ "{0:d}".format(range(0, 255)|random) }}', '{{ "{0:d}".format(range(0, 255)|random) }}']
+        
+- alias: Restore Familyroom Lights
+  trigger:
+    platform: state
+    entity_id: input_boolean.animate_downstairs_lights
+    to: 'off'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: group.family_room_lights
+        transition: 5
+        rgb_color: [255, 251, 245]
+        brightness: 255
+        color_temp: 162

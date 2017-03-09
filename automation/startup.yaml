@@ -1,0 +1,21 @@
+#- alias: Startup Notification
+#  trigger:
+#    platform: event
+#    event_type: homeassistant_start
+#  action:
+#    - service: mqtt.publish
+#      data:
+#        topic: /home/tv/backlight
+#        payload: 'FLICKER'
+#    - service: ifttt.trigger
+#      data: {"event":"Smart Home", "value1":"Smart Home Service is up and running!", "value2":""}
+#    - delay: 00:01
+#    - service: script.notify_home_status
+
+- alias: Update Available Notification
+  trigger:
+    platform: state
+    entity_id: updater.updater
+  action:
+    - service: ifttt.trigger
+      data: {"event":"Smart Home", "value1":"New HASS update is available. Please update!", "value2":""}

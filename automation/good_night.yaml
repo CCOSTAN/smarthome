@@ -1,0 +1,163 @@
+# ---------------------------------------------------------
+# PRE-BEDTIME - DIM Kitchen Lights IF they are ON
+# ---------------------------------------------------------
+- alias: goodnight_dim_kitchen_lights
+  trigger:
+    platform: time
+    after: '21:45:00'
+  condition:
+    - condition: state
+      entity_id: light.dinette      
+      state: 'on'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.dinette
+        #rgb_color: [25,25,25]
+        brightness: 15
+        color_temp: 155
+        transition: 15
+
+# ---------------------------------------------------------
+# PRE-BEDTIME - DIM TV Lights IF they are ON
+# ---------------------------------------------------------
+- alias: goodnight_dim_tv_light_1
+  trigger:
+    platform: time
+    after: '21:45:00'
+  condition:
+    - condition: state
+      entity_id: light.hue_color_lamp_1
+      state: 'on'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.hue_color_lamp_1
+        rgb_color: [25,25,25]
+        brightness: 10
+        color_temp: 420
+        transition: 15
+
+- alias: goodnight_dim_tv_light_2
+  trigger:
+    platform: time
+    after: '21:45:00'
+  condition:
+    - condition: state
+      entity_id: light.hue_color_lamp_2
+      state: 'on'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.hue_color_lamp_2
+        rgb_color: [25,25,25]
+        brightness: 10
+        color_temp: 420
+        transition: 15
+
+- alias: goodnight_dim_tv_light_3
+  trigger:
+    platform: time
+    after: '21:45:00'
+  condition:
+    - condition: state
+      entity_id: light.hue_color_lamp_3
+      state: 'on'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.hue_color_lamp_3
+        rgb_color: [25,25,25]
+        brightness: 10
+        color_temp: 420
+        transition: 15
+
+- alias: goodnight_blink_front_room_light
+  trigger:
+    platform: time
+    after: '21:45:00'
+  condition:
+    - condition: state
+      entity_id: switch.wemoswitch1
+      state: 'on'
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: switch.wemoswitch1
+    - delay: 00:00:1
+    - service: light.turn_on
+      data:
+        entity_id: switch.wemoswitch1
+    - delay: 00:00:1
+    - service: light.turn_off
+      data:
+        entity_id: switch.wemoswitch1
+    - delay: 00:00:1
+    - service: light.turn_on
+      data:
+        entity_id: switch.wemoswitch1
+        
+# ---------------------------------------------------------
+# TURN HOME SECURITY SYSTEM ON AFTER BED TIME
+# ---------------------------------------------------------
+- alias: goodnight_homesecurity_on
+  trigger:
+    platform: time
+    after: '22:00:00'
+  condition:
+    - condition: template
+      value_template: "{{ states('alarm_control_panel.simplisafe') != 'away' }}"
+    - condition: state
+      entity_id: group.all_devices
+      state: 'home'
+    - condition: template
+      value_template: "{{ states('alarm_control_panel.simplisafe') == 'disarmed' }}"
+  action:
+    - service: alarm_control_panel.alarm_arm_home
+      data:
+        entity_id: alarm_control_panel.simplisafe
+    - service: ifttt.trigger
+      data: {"event":"Smart Home", "value1":"It's bedtime, you forgot to turn ON Home Security System. Turned it ON for you.", "value2":""}
+    - service: mqtt.publish
+      data_template:
+        topic: !secret mqtt_announcement_topic
+        payload: 'It is bedtime, you forgot to turn ON Home Security System. Turned it ON for you.'
+
+# ---------------------------------------------------------
+# TURN INDOOR LIGHTS OFF AFTER BED TIME
+# ---------------------------------------------------------
+- alias: goodnight_turn_lights_off
+  trigger:
+    platform: time
+    after: '22:00:00'
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.dinette
+    - service: light.turn_off
+      data:
+        entity_id: light.hue_color_lamp_1
+    - service: light.turn_off
+      data:
+        entity_id: light.hue_color_lamp_2
+    - service: light.turn_off
+      data:
+        entity_id: light.hue_color_lamp_3
+    - service: light.turn_off
+      data:
+        entity_id: light.master_bedroom_1
+    - service: light.turn_off
+      data:
+        entity_id: light.master_bedroom_2
+    - service: switch.turn_off
+      data:
+        entity_id: switch.wemoswitch1
+    - service: switch.turn_off
+      data:
+        entity_id: switch.switch_two
+    - service: ifttt.trigger
+      data: {"event":"Smart Home", "value1":"It is bed time, turned lights off!", "value2":""}
+    - service: mqtt.publish
+      data_template:
+        topic: !secret mqtt_announcement_topic
+        payload: 'It is time to go to bed. Sleep well!'

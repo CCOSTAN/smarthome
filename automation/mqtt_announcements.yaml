@@ -1,0 +1,9 @@
+- alias: Announce Message
+  trigger:
+    platform: mqtt
+    topic: !secret mqtt_announcement_topic
+  action:
+    - service: script.Voice_notify
+      data_template:
+        value1: >
+          {{ trigger.payload }}

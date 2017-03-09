@@ -1,0 +1,141 @@
+#
+# Turn Indoor lights ON only during weekdays
+#
+- alias: Indoor Lights ON Early Morning
+  trigger:
+    platform: time
+    after: '05:30:00'
+  condition:
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.dinette
+        transition: 15
+        brightness: 255
+        color_temp: 155
+
+#
+# Turn off outdoor lights 15 minutes after sunrise
+#
+- alias: Outdoor Lights OFF at Sunrise
+  trigger:
+    platform: sun
+    event: sunrise
+    offset: '00:15:00'
+  action:
+    - service: switch.turn_off
+      data:
+        entity_id: switch.wemofrontporchlightswitch
+    - service: switch.turn_off
+      data:
+        entity_id: switch.wemobackyardlightswitch
+    - service: switch.turn_off
+      data:
+        entity_id: switch.wemoswitch1
+
+#
+# Turn ON Master Bedroom lights ON in the morning
+#
+- alias: Master Bedroom Lights ON in the Morning Mallika
+  trigger:
+    platform: time
+    after: '05:20:00'
+  condition:
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.master_bedroom_2
+        rgb_color: [224,175,102]
+        brightness: 10
+        color_temp: 366
+
+- alias: Master Bedroom Lights OFF in the Morning Mallika
+  trigger:
+    platform: time
+    after: '05:45:00'
+  condition:
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.master_bedroom_2
+
+#
+# Turn ON Master Bedroom lights ON in the morning
+#
+- alias: Master Bedroom Lights ON in the Morning Suresh
+  trigger:
+    platform: time
+    after: '06:55:00'
+  condition:
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.master_bedroom_1
+        rgb_color: [224,175,102]
+        brightness: 10
+        color_temp: 366
+
+- alias: Master Bedroom Lights OFF in the Morning Suresh
+  trigger:
+    platform: time
+    after: '10:00:00'
+  condition:
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.master_bedroom_1
+
+#
+# Turn OF Kitchen Lights at 8:15 AM Clock
+#
+- alias: Kitchen Light OFF at Eight AM
+  trigger:
+    platform: time
+    after: '08:15:00'
+  condition:
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+  action:
+   - service: light.turn_off
+     data:
+       entity_id: light.dinette

@@ -1,0 +1,202 @@
+# todo: Need to install a motion sensor for outside. When motion detects, and no one at home, play dog sounds
+# until then, just play dog sounds every 5 minutes
+- alias: Let the dog bark when we are not home
+  trigger:
+    - platform: time
+      minutes : '{{"{0:d}".format(range(1, 9)|random) }}'
+  condition:
+    - condition: state
+      entity_id: group.all_devices
+      state: 'not home'      
+  action:
+    - service: shell_command.dog_sounds
+    - service: ifttt.trigger
+      data: {"event":"Smart Home", "value1":"No one is at home. Playing dog sounds every 5 minutes!", "value2":""}
+      
+- alias: Home Security System WatchDog
+  trigger:
+    - platform: state
+      entity_id:
+        - alarm_control_panel.simplisafe
+      state: 'disarmed'
+      for: 
+        minutes: 10
+  condition:
+    - condition: state
+      entity_id: group.all_devices
+      state: 'home'
+  action:
+    - service: ifttt.trigger
+      data: {"event":"Smart Home", "value1":"Home Security System is OFF for more than 10 minutes!", "value2":""}
+    - service: mqtt.publish
+      data_template:
+        topic: !secret mqtt_announcement_topic
+        payload: 'Home Security System is switched OFF for more than 10 minutes.'
+
+- alias: Secure Home When Everyone is away
+  trigger:
+    - platform: state
+      entity_id:
+        - alarm_control_panel.simplisafe
+      state: 'disarmed'
+      for: 
+        minutes: 10
+  condition:
+    - condition: state
+      entity_id: group.all_devices
+      state: 'not home'
+  action:
+    - service: alarm_control_panel.alarm_arm_away
+      data:
+        entity_id: alarm_control_panel.simplisafe
+    - service: ifttt.trigger
+      data: {"event":"Smart Home", "value1":"No one is home, turned Home Security System in AWAY mode.!", "value2":""}
+        
+- alias: Frontroom Light WatchDog
+  trigger:
+    - platform: state
+      entity_id:
+        - switch.wemoswitch1
+      state: 'on'
+      for:
+        minutes: 5
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'above_horizon'
+  action:
+    - service: switch.turn_off
+      data_template:
+        entity_id: "{{ trigger.entity_id }}"
+        
+    - service: ifttt.trigger
+      data_template:
+        event: "Smart Home"
+        value1: >
+          {{ trigger.to_state.attributes.friendly_name }} is ON. Saving power by turning it off!
+        value2: ""
+
+- alias: Frontyard Light WatchDog
+  trigger:
+    - platform: state
+      entity_id:
+        - switch.wemofrontporchlightswitch
+      state: 'on'
+      for:
+        minutes: 5
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'above_horizon'
+  action:
+    - service: switch.turn_off
+      data_template:
+        entity_id: "{{ trigger.entity_id }}"        
+    - service: ifttt.trigger
+      data_template:
+        event: "Smart Home"
+        value1: >
+          {{ trigger.to_state.attributes.friendly_name }} is ON. Saving power by turning it off!
+        value2: ""
+
+- alias: Backyard Light WatchDog
+  trigger:
+    - platform: state
+      entity_id:
+        - switch.wemobackyardlightswitch
+      state: 'on'
+      for:
+        minutes: 5
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'above_horizon'
+  action:
+    - service: switch.turn_off
+      data_template:
+        entity_id: "{{ trigger.entity_id }}"        
+    - service: ifttt.trigger
+      data_template:
+        event: "Smart Home"
+        value1: >
+          {{ trigger.to_state.attributes.friendly_name }} is ON. Saving power by turning it off!
+        value2: ""
+
+- alias: Garage Lights WatchDog
+  trigger:
+    - platform: state
+      entity_id:
+        - switch.garage_lights
+      state: 'on'
+      for:
+        minutes: 10
+  action:
+    - service: switch.turn_off
+      data_template:
+        entity_id: "{{ trigger.entity_id }}"        
+    - service: ifttt.trigger
+      data_template:
+        event: "Smart Home"
+        value1: >
+          {{ trigger.to_state.attributes.friendly_name }} is left ON for 10 minutes. Saving power by turning it off!
+          
+- alias: Guest Bedroom 1 Light WatchDog
+  trigger:
+    - platform: state
+      entity_id:
+        - switch.guest_bedroom
+      state: 'on'
+      for:
+        minutes: 10
+  action:
+    - service: switch.turn_off
+      data_template:
+        entity_id: "{{ trigger.entity_id }}"        
+    - service: ifttt.trigger
+      data_template:
+        event: "Smart Home"
+        value1: >
+          {{ trigger.to_state.attributes.friendly_name }} lights are left ON for 10 minutes. Saving power by turning it off!
+        value2: ""
+
+- alias: Guest Bedroom 2 Light WatchDog
+  trigger:
+    - platform: state
+      entity_id:
+        - switch.prayer_room
+      state: 'on'
+      for:
+        minutes: 10
+  condition:
+    - condition: time
+      before: '16:00:00'        
+      after: '21:00:00'
+  action:
+    - service: switch.turn_off
+      data_template:
+        entity_id: "{{ trigger.entity_id }}"        
+    - service: ifttt.trigger
+      data_template:
+        event: "Smart Home"
+        value1: >
+          {{ trigger.to_state.attributes.friendly_name }} light is left ON for 10 minutes. Saving power by turning it off!
+        value2: ""
+
+- alias: Kids Bedroom Light WatchDog
+  trigger:
+    - platform: state
+      entity_id:
+        - switch.kids_bedroom
+      state: 'on'
+      for:
+        minutes: 30
+  action:
+    - service: switch.turn_off
+      data_template:
+        entity_id: "{{ trigger.entity_id }}"        
+    - service: ifttt.trigger
+      data_template:
+        event: "Smart Home"
+        value1: >
+          {{ trigger.to_state.attributes.friendly_name }} light is left ON for 30 minutes. Saving power by turning it off!
+        value2: ""

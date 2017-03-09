@@ -1,0 +1,163 @@
+#
+# Dim Family Room Lights When TV is Turned ON
+#
+- alias: Dim Indoor Lights when TV is ON
+  trigger:
+    platform: state
+    entity_id: media_player.sharp_tv
+    from: 'off'
+    to: 'on'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.hue_color_lamp_1
+        rgb_color: [255, 255, 255]
+        brightness: 5
+        color_temp: 366
+    - service: light.turn_on
+      data:
+        entity_id: light.hue_color_lamp_2
+        rgb_color: [255, 255, 255]
+        brightness: 5
+        color_temp: 366
+    - service: light.turn_on
+      data:
+        entity_id: light.hue_color_lamp_3
+        rgb_color: [255, 255, 255]
+        brightness: 5
+        color_temp: 366
+    - service: mqtt.publish
+      data:
+        topic: /home/tv/backlight
+        payload: 'on'
+        retain: true
+    - service: mqtt.publish
+      data:
+        topic: /home/tv
+        payload: 'on'
+        retain: true
+
+#
+# Restore Family Room Lights to TV mode
+#
+- alias: Restore Family Room Lights To TV Mode
+  trigger:
+    - platform: state
+      entity_id: group.family_room_lights
+      from: 'off'
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: media_player.sharp_tv
+      state: 'on'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.hue_color_lamp_1
+        rgb_color: [255, 255, 255]
+        brightness: 5
+        color_temp: 366
+        transition: 5
+    - service: light.turn_on
+      data:
+        entity_id: light.hue_color_lamp_2
+        rgb_color: [255, 255, 255]
+        brightness: 5
+        color_temp: 366
+        transition: 5
+    - service: light.turn_on
+      data:
+        entity_id: light.hue_color_lamp_3
+        rgb_color: [255, 255, 255]
+        brightness: 5
+        color_temp: 366
+        transition: 5
+
+#
+# Turn Backlights Off when TV is turned OFF
+#
+- alias: Backlight OFF when TV is OFF
+  trigger:
+    platform: state
+    entity_id: media_player.sharp_tv
+    state: 'off'
+  action:
+    - service: mqtt.publish
+      data:
+        topic: /home/tv
+        payload: 'off'
+        retain: true
+    - service: mqtt.publish
+      data:
+        topic: /home/tv/backlight
+        payload: 'off'
+        retain: true
+
+#
+# Turn TV backlights when TV is turned ON
+#
+- alias: Backlight is ON when TV is ON
+  trigger:
+    platform: state
+    entity_id: media_player.sharp_tv
+    state: 'on'
+  action:
+    - service: mqtt.publish
+      data:
+        topic: /home/tv
+        payload: 'off'
+        retain: true  
+    - service: mqtt.publish
+      data:
+        topic: /home/tv/backlight
+        payload: 'on'
+        retain: true
+
+#
+# Turn back Family room lights when TV is switched OFF
+#
+- alias: Turn Lights ON When TV is turned OFF
+  trigger:
+    platform: state
+    entity_id: media_player.sharp_tv
+    state: 'off'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.hue_color_lamp_1
+        rgb_color: [255, 255, 255]
+        brightness: 255
+        color_temp: 366
+        transition: 5
+    - service: light.turn_on
+      data:
+        entity_id: light.hue_color_lamp_2
+        rgb_color: [255, 255, 255]
+        brightness: 255
+        color_temp: 366
+        transition: 5
+    - service: light.turn_on
+      data:
+        entity_id: light.hue_color_lamp_3
+        rgb_color: [255, 255, 255]
+        brightness: 255
+        color_temp: 366
+        transition: 5  
+    - service: mqtt.publish
+      data:
+        topic: /home/tv
+        payload: 'off'
+        retain: true
+    - service: mqtt.publish
+      data:
+        topic: /home/tv/backlight
+        payload: 'off'
+        retain: true

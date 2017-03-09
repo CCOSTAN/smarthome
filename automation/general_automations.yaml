@@ -1,0 +1,29 @@
+- alias: Long Flash all lights
+  trigger:
+    - platform: state
+      entity_id: input_boolean.long_flash
+      state: 'on'
+      from: 'off'
+  action:
+    - service: light.turn_on
+      entity_id:
+        - group.all_lights
+      data:
+        flash: long
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.long_flash
+
+- alias: Short Flash all_lights
+  trigger:
+    - platform: state
+      entity_id: input_boolean.short_flash
+      state: 'on'
+      from: 'off'
+  action:
+    - service: light.turn_on
+      entity_id:
+        - group.all_lights
+      data:
+        flash: short
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.short_flash

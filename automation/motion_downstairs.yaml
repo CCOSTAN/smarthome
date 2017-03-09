@@ -1,0 +1,263 @@
+#===============================================================================================#
+#   Automation      It's Dark 	Motion		TV		Lights	ACTION                              #
+#===============================================================================================#
+#   MOTION001       YES		    ON		    ON		ON		Dim Lights                          #
+#   MOTION002       YES		    ON		    ON		OFF		Dim Lights                          #
+#   MOTION003       YES		    ON		    OFF		ON		Increase the brightness to 100%     #
+#   MOTION004       YES		    ON		    OFF		OFF		Turn Lights ON at 100% brightness   #
+#===============================================================================================#
+#   MOTION005       YES		    OFF		    ON		ON		Lights OFF                          #
+#   MOTION006       YES		    OFF		    ON		OFF		Don't to anything                   #
+#   MOTION007       YES		    OFF		    OFF		ON		Turn Lights OFF                     #
+#   MOTION008       YES		    OFF		    OFF		OFF		Don't to anything                   #
+#===============================================================================================#
+
+#===============================================================================================#
+#   Automation      It's Dark 	Motion		TV		Lights	ACTION                              #
+#   MOTION001       YES		    ON		    ON		ON		Dim Lights                          #
+#===============================================================================================#
+- alias: MOTION001
+  trigger:
+    platform: state
+    entity_id: binary_sensor.aeotec_zw074_multisensor_gen5_sensor_2_0
+    from: 'off'
+    to: 'on'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+    - condition: state
+      entity_id: media_player.sharp_tv
+      state: 'on'
+    - condition: state
+      entity_id: group.family_room_lights
+      state: 'on'      
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.hue_color_lamp_1
+        rgb_color: [255, 255, 255]
+        brightness: 10
+        color_temp: 366
+        transition: 5
+    - service: light.turn_on
+      data:
+        entity_id: light.hue_color_lamp_2
+        rgb_color: [255, 255, 255]
+        brightness: 10
+        color_temp: 366
+        transition: 5
+    - service: light.turn_on
+      data:
+        entity_id: light.hue_color_lamp_3
+        rgb_color: [255, 255, 255]
+        brightness: 10
+        color_temp: 366
+        transition: 5
+
+#===============================================================================================#
+#   Automation      It's Dark 	Motion		TV		Lights	ACTION                              #
+#   MOTION002       YES		    ON		    ON		OFF		Dim Lights                          #
+#===============================================================================================#
+- alias: MOTION002
+  trigger:
+    platform: state
+    entity_id: binary_sensor.aeotec_zw074_multisensor_gen5_sensor_2_0
+    from: 'off'
+    to: 'on'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+    - condition: state
+      entity_id: media_player.sharp_tv
+      state: 'on'
+    - condition: state
+      entity_id: group.family_room_lights
+      state: 'off'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.hue_color_lamp_1
+        rgb_color: [255, 255, 255]
+        brightness: 10
+        color_temp: 366
+        transition: 5
+    - service: light.turn_on
+      data:
+        entity_id: light.hue_color_lamp_2
+        rgb_color: [255, 255, 255]
+        brightness: 10
+        color_temp: 366
+        transition: 5
+    - service: light.turn_on
+      data:
+        entity_id: light.hue_color_lamp_3
+        rgb_color: [255, 255, 255]
+        brightness: 10
+        color_temp: 366
+        transition: 5
+
+#===============================================================================================#
+#   Automation      It's Dark 	Motion		TV		Lights	ACTION                              #
+#   MOTION003       YES		    ON		    OFF		ON		Increase the brightness to 100%     #
+#===============================================================================================#
+- alias: MOTION003
+  trigger:
+    platform: state
+    entity_id: binary_sensor.aeotec_zw074_multisensor_gen5_sensor_2_0
+    from: 'off'
+    to: 'on'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+    - condition: state
+      entity_id: media_player.sharp_tv
+      state: 'off'
+    - condition: state
+      entity_id: group.family_room_lights
+      state: 'on'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.hue_color_lamp_1
+        rgb_color: [255, 255, 255]
+        brightness: 255
+        color_temp: 366
+        transition: 5
+    - service: light.turn_on
+      data:
+        entity_id: light.hue_color_lamp_2
+        rgb_color: [255, 255, 255]
+        brightness: 255
+        color_temp: 366
+        transition: 5
+    - service: light.turn_on
+      data:
+        entity_id: light.hue_color_lamp_3
+        rgb_color: [255, 255, 255]
+        brightness: 255
+        color_temp: 366
+        transition: 5
+
+#===============================================================================================#
+#   Automation      It's Dark 	Motion		TV		Lights	ACTION                              #
+#   MOTION004       YES		    ON		    OFF		OFF		Turn Lights ON at 100% brightness   #
+#===============================================================================================#
+- alias: MOTION004
+  trigger:
+    platform: state
+    entity_id: binary_sensor.aeotec_zw074_multisensor_gen5_sensor_2_0
+    from: 'off'
+    to: 'on'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+    - condition: state
+      entity_id: media_player.sharp_tv
+      state: 'off'
+    - condition: state
+      entity_id: group.family_room_lights
+      state: 'off'      
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.hue_color_lamp_1
+        rgb_color: [255, 255, 255]
+        brightness: 255
+        color_temp: 366
+        transition: 5
+    - service: light.turn_on
+      data:
+        entity_id: light.hue_color_lamp_2
+        rgb_color: [255, 255, 255]
+        brightness: 255
+        color_temp: 366
+        transition: 5
+    - service: light.turn_on
+      data:
+        entity_id: light.hue_color_lamp_3
+        rgb_color: [255, 255, 255]
+        brightness: 255
+        color_temp: 366
+        transition: 5
+
+#===============================================================================================#
+#   Automation      It's Dark 	Motion		TV		Lights	ACTION                              #
+#   MOTION005       YES		    OFF		    ON		ON		Lights OFF                          #
+#===============================================================================================#        
+- alias: MOTION005
+  trigger:
+    platform: state
+    entity_id: binary_sensor.aeotec_zw074_multisensor_gen5_sensor_2_0
+    from: 'on'
+    to: 'off'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+    - condition: state
+      entity_id: media_player.sharp_tv
+      state: 'on'
+    - condition: state
+      entity_id: group.family_room_lights
+      state: 'on'      
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.hue_color_lamp_1
+        transition: 5
+    - service: light.turn_off
+      data:
+        entity_id: light.hue_color_lamp_2
+        transition: 5
+    - service: light.turn_off
+      data:
+        entity_id: light.hue_color_lamp_3
+        transition: 5
+
+#===============================================================================================#
+#   Automation      It's Dark 	Motion		TV		Lights	ACTION                              #        
+#   MOTION006       YES		    OFF		    ON		OFF		Don't to anything                   #
+#===============================================================================================#       
+
+#===============================================================================================#
+#   Automation      It's Dark 	Motion		TV		Lights	ACTION                              #        
+#   MOTION007       YES		    OFF		    OFF		ON		Turn Lights OFF                     #
+#===============================================================================================#
+- alias: MOTION007
+  trigger:
+    platform: state
+    entity_id: binary_sensor.aeotec_zw074_multisensor_gen5_sensor_2_0
+    from: 'on'
+    to: 'off'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+    - condition: state
+      entity_id: media_player.sharp_tv
+      state: 'off'
+    - condition: state
+      entity_id: group.family_room_lights
+      state: 'on'      
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.hue_color_lamp_1
+        transition: 5
+    - service: light.turn_off
+      data:
+        entity_id: light.hue_color_lamp_2
+        transition: 5
+    - service: light.turn_off
+      data:
+        entity_id: light.hue_color_lamp_3
+        transition: 5
+
+#===============================================================================================#
+#   Automation      It's Dark 	Motion		TV		Lights	ACTION                              #
+#   MOTION008       YES		    OFF		    OFF		OFF		Don't to anything                   #
+#===============================================================================================#

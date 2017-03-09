@@ -1,0 +1,44 @@
+- alias: Notify Simplisafe Home
+  trigger:
+    platform: state
+    entity_id: alarm_control_panel.simplisafe
+    to: 'armed_home'
+  action:
+    - service: ifttt.trigger
+      data: {"event":"Smart Home", "value1":"Home Security status set to: ", "value2":"HOME"}
+    - service: mqtt.publish
+      data_template:
+        topic: !secret mqtt_announcement_topic
+        payload: "Home Security System is now set to Home! Your home is now secured!"
+        
+- alias: Notify Simplisafe Off
+  trigger:
+    platform: state
+    entity_id: alarm_control_panel.simplisafe
+    to: 'disarmed'
+  action:
+    - service: ifttt.trigger
+      data: {"event":"Smart Home", "value1":"WARNING - Home Security status set to: ", "value2":"OFF!"}
+    - service: mqtt.publish
+      data_template:
+        topic: !secret mqtt_announcement_topic
+        payload: "Home Security System is turned OFF. Your home is NOT secured!"
+        
+- alias: Notify Simplisafe Away
+  trigger:
+    platform: state
+    entity_id: alarm_control_panel.simplisafe
+    to: 'armed_away'
+  action:
+    - service: ifttt.trigger
+      data: {"event":"Smart Home", "value1":"Home Security status set to: ", "value2":"AWAY"}      
+
+- alias: Notify Simplisafe Triggered
+  trigger:
+    platform: state
+    entity_id: alarm_control_panel.simplisafe
+    to: 'triggered'
+  action:
+    - service: ifttt.trigger
+      data: {"event":"ALERT!!!", "value1":"ALERT!!! Home Security is TRIGGERED!!!: ", "value2":"ALERT!!!"}
+      #TODO: Play siren sounds

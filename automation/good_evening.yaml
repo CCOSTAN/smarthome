@@ -1,0 +1,99 @@
+#
+# Turn Home Security System ON at sunset time
+#
+- alias: Home Security System ON at Sunset
+  trigger:
+    platform: sun
+    event: sunset
+    offset: '+00:00:00'
+  condition:
+    - condition: state
+      entity_id: group.all_devices
+      state: 'home'
+    - condition: state
+      entity_id: alarm_control_panel.simplisafe
+      state: 'disarmed'
+  action:
+    - service: alarm_control_panel.alarm_arm_home
+      data:
+        entity_id: alarm_control_panel.simplisafe
+    - service: ifttt.trigger
+      data: {"event":"Smart Home", "value1":"It's getting dark outside, Turned ON Home Security System.", "value2":""}
+    - service: mqtt.publish
+      data_template:
+        topic: !secret mqtt_announcement_topic
+        payload: 'It is getting dark outside, Turned ON Home Security System.'
+
+#
+#
+# Turn outdoor lights on 15 minutes before sunset
+#
+- alias: Outdoor Lights ON at Sunset
+  trigger:
+    platform: sun
+    event: sunset
+    offset: '+00:00:00'    
+#    offset: '-00:15:00'
+  action:
+    - service: switch.turn_on
+      data:
+        entity_id: switch.wemofrontporchlightswitch
+    - service: switch.turn_on
+      data:
+        entity_id: switch.wemobackyardlightswitch
+    - service: switch.turn_on
+      data:
+        entity_id: switch.wemoswitch1
+    - service: switch.turn_on
+      data:
+        entity_id: switch.switch_two
+
+#
+# Turn indoor lights on 30 minutes before sunset
+#
+- alias: Indoor Lights ON before Sunset
+  trigger:
+    platform: sun
+    event: sunset
+    offset: '-00:30:00'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.dinette
+        transition: 15
+        #rgb_color: [255,255,255]
+        brightness: 255
+        color_temp: 155
+    - service: light.turn_on
+      data:
+        entity_id: light.hue_color_lamp_1
+        transition: 5
+        rgb_color: [255, 255, 255]
+        brightness: 255
+        color_temp: 366
+    - service: light.turn_on
+      data:
+        entity_id: light.hue_color_lamp_2
+        transition: 5
+        rgb_color: [255, 255, 255]
+        brightness: 255
+        color_temp: 366
+    - service: light.turn_on
+      data:
+        entity_id: light.hue_color_lamp_3
+        transition: 5
+        rgb_color: [255, 255, 255]
+        brightness: 255
+        color_temp: 366
+    - service: light.turn_on
+      data:
+        entity_id: light.master_bedroom_1
+        rgb_color: [224,175,102]
+        brightness: 10
+        color_temp: 366
+    - service: light.turn_on
+      data:
+        entity_id: light.master_bedroom_2
+        rgb_color: [224,175,102]
+        brightness: 10
+        color_temp: 366

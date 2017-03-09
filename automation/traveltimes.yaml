@@ -1,0 +1,45 @@
+#   Name:   Morning Commute
+#
+#   Trigger: Triggers every 5 minutes
+#
+#   Conditions: - ALL MUST BE VALID
+#       1. Time must be between 8 am and 10 am
+#       2. Suresh MUST be at home
+#       3. It has to be a weekday
+#
+#   Action:
+#       1. Notify via Push Notification
+#       2. Announce in the speaker @ home
+#
+#
+- alias: Morning Commute
+  trigger:
+    platform: time
+    Minutes: '/10'
+  condition:
+    condition: and
+    conditions:
+     - condition: state
+       entity_id: device_tracker.suresh_suresh
+       state: 'home'
+     - condition: time
+       after: '08:00:00'
+       before: '10:00:00'
+     - condition: time
+       weekday:
+         - mon
+         - tue
+         - wed
+         - thu
+         - fri
+  action:
+    - service: ifttt.trigger
+      data_template:
+        event: "Smart Home"
+        value1: >
+          Suresh, if you leave now, it will take you around {{ states('sensor.home2work') }} minutes to get to your office.
+        value2: ""
+    - service: mqtt.publish
+      data_template:
+        topic: !secret mqtt_announcement_topic
+        payload: "Suresh!, If you leave now, it will take you around {{ states('sensor.home2work') }} minutes to get to your office."

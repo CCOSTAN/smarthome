@@ -1,0 +1,55 @@
+- alias: Check Suresh's Battery Level
+  trigger:
+    platform: numeric_state
+    entity_id: device_tracker.suresh_suresh
+    value_template: '{{ state.attributes.battery }}'
+    below: 30
+  action:
+    - service: ifttt.trigger
+      data: {"event":"Smart Home", "value1":"Suresh's iPhone Battery is less than 30%. ", "value2":"Please keep it charged!"}
+    - service: mqtt.publish
+      data_template:
+        topic: !secret mqtt_announcement_topic
+        payload: "Suresh's phone battery is less than 30%. Please charge the phone!"
+
+- alias: Check Mallika's Battery Level
+  trigger:
+    platform: numeric_state
+    entity_id: device_tracker.mallika_mallika
+    value_template: '{{ state.attributes.battery }}'
+    below: 30
+  action:
+    - service: ifttt.trigger
+      data: {"event":"Smart Home", "value1":"Mallika's iPhone Battery is less than 30%. ", "value2":"Please keep it charged!"}
+    - service: mqtt.publish
+      data_template:
+        topic: !secret mqtt_announcement_topic
+        payload: "Mallika's phone battery is less than 30%. Please charge the phone!"
+
+- alias: Check Srinika's Battery Level
+  trigger:
+    platform: numeric_state
+    entity_id: device_tracker.srinika_srinika
+    value_template: '{{ state.attributes.battery }}'
+    below: 30
+  action:
+    - service: ifttt.trigger
+      data: {"event":"Smart Home", "value1":"Srinika's iPhone Battery is less than 30%. ", "value2":"Please keep it charged!"}
+    - service: mqtt.publish
+      data_template:
+        topic: !secret mqtt_announcement_topic
+        payload: "Srinika's phone battery is less than 30%. Please charge the phone!"
+
+- alias: Check Hasika's Battery Level
+  trigger:
+    platform: numeric_state
+    entity_id: device_tracker.hasika_hasika
+    value_template: '{{ state.attributes.battery }}'
+    below: 30
+  action:
+    - service: ifttt.trigger
+      data: {"event":"Smart Home", "value1":"Hasika's iPhone Battery is less than 30%. ", "value2":"Please keep it charged!"}
+    - service: mqtt.publish
+      data_template:
+        topic: !secret mqtt_announcement_topic
+        payload: "Haasika's phone battery is less than 30%. Please charge the phone!"

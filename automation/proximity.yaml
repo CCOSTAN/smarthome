@@ -1,0 +1,20 @@
+- alias: Send a message as I get closer to home
+  trigger:
+    platform: numeric_state
+    entity_id: proximity.home
+    below: 5
+    above: 1
+  condition:
+    - condition: template
+      value_template: '{{ states.proximity.home.attributes.dir_of_travel == "towards" }}'
+  action:
+    - service: ifttt.trigger
+      data_template:
+        event: "Smart Home"
+        value1: >
+          "Suresh is on his way, he is within the 5 miles range. Should be home soon!"
+        value2: ""
+    - service: mqtt.publish
+      data_template:
+        topic: !secret mqtt_announcement_topic
+        payload: "Suresh is on his way, he is within the 5 miles range. Should be home soon!"

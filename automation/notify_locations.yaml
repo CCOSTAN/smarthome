@@ -1,0 +1,193 @@
+###################################################################################################
+# Someone enters or leaves home
+- alias: Alert When Someone Arrives Home
+  trigger:
+    platform: zone
+    entity_id:
+      - device_tracker.mallika_mallika
+      - device_tracker.suresh_suresh
+      - device_tracker.srinika_srinika
+      - device_tracker.hasika_hasika
+    zone: zone.home
+    event: enter
+  action:
+    - service: ifttt.trigger
+      data_template:
+        event: "Smart Home"
+        value1: >
+          {{ trigger.entity_id.split('.')[1].split('_')[1] | title}} is home!
+        value2: ""
+    - service: mqtt.publish
+      data_template:
+        topic: !secret mqtt_announcement_topic
+        payload: "{{ trigger.entity_id.split('.')[1].split('_')[1] }} is home!"
+
+- alias: Alert When Someone Leaves Home
+  trigger:
+    platform: zone
+    entity_id:
+      - device_tracker.mallika_mallika
+      - device_tracker.suresh_suresh
+      - device_tracker.srinika_srinika
+      - device_tracker.hasika_hasika
+    zone: zone.home
+    event: leave
+  action:
+    - service: ifttt.trigger
+      data_template:
+        event: "Smart Home"
+        value1: >
+          {{ trigger.entity_id.split('.')[1].split('_')[1]| title }} left home!
+        value2: ""
+    - service: mqtt.publish
+      data_template:
+        topic: !secret mqtt_announcement_topic
+        payload: "{{ trigger.entity_id.split('.')[1].split('_')[1] }} left home!"
+
+###################################################################################################
+# Someone enters or leaves Middle School
+- alias: Alert When Someone Arrives Middle School
+  trigger:
+    platform: zone
+    entity_id:
+      - device_tracker.srinika_srinika
+    zone: zone.middleschool
+    event: enter
+  action:
+    - service: ifttt.trigger
+      data_template:
+        event: "Smart Home"
+        value1: >
+          {{ trigger.entity_id.split('.')[1].split('_')[1] | title }} just reached middle  school!
+        value2: ""
+    - service: mqtt.publish
+      data_template:
+        topic: !secret mqtt_announcement_topic
+        payload: "{{ trigger.entity_id.split('.')[1].split('_')[1] }} reached middle School!"
+        
+- alias: Alert When Someone left Middle School
+  trigger:
+    platform: zone
+    entity_id:
+      - device_tracker.srinika_srinika
+    zone: zone.middleschool
+    event: leave
+  action:
+    - service: ifttt.trigger
+      data_template:
+        event: "Smart Home"
+        value1: >
+          {{ trigger.entity_id.split('.')[1].split('_')[1] | title}} just left middle school!
+        value2: ""
+    - service: mqtt.publish
+      data_template:
+        topic: !secret mqtt_announcement_topic
+        payload: "{{ trigger.entity_id.split('.')[1].split('_')[1] }} left middle School!"
+
+###################################################################################################
+# Someone enters or leaves Elementary School
+- alias: Alert When Someone Arrives elemschool
+  trigger:
+    platform: zone
+    entity_id:
+      - device_tracker.mallika_mallika
+      - device_tracker.suresh_suresh
+      - device_tracker.srinika_srinika
+      - device_tracker.hasika_hasika
+    zone: zone.elemschool
+    event: enter
+  action:
+    - service: ifttt.trigger
+      data_template:
+        event: "Smart Home"
+        value1: >
+          {{ trigger.entity_id.split('.')[1].split('_')[1] | title}} reached Elementary School!
+        value2: ""
+    - service: mqtt.publish
+      data_template:
+        topic: !secret mqtt_announcement_topic
+        payload: "{{ trigger.entity_id.split('.')[1].split('_')[1] }} reached Elementary School!"
+        
+- alias: Alert When Someone left elemschool
+  trigger:
+    platform: zone
+    entity_id:
+      - device_tracker.mallika_mallika
+      - device_tracker.suresh_suresh
+      - device_tracker.srinika_srinika
+      - device_tracker.hasika_hasika
+    zone: zone.elemschool
+    event: leave
+  action:
+    - service: ifttt.trigger
+      data_template:
+        event: "Smart Home"
+        value1: >
+          {{ trigger.entity_id.split('.')[1].split('_')[1]| title }} left Elementary School!
+        value2: ""
+    - service: mqtt.publish
+      data_template:
+        topic: !secret mqtt_announcement_topic
+        payload: "{{ trigger.entity_id.split('.')[1].split('_')[1] }} left Elementary School!"
+        
+###################################################################################################
+# Someone enters or leaves office
+- alias: Alert When Someone Arrives Office
+  trigger:
+    platform: zone
+    entity_id:
+      - device_tracker.mallika_mallika
+      - device_tracker.suresh_suresh
+      - device_tracker.srinika_srinika
+      - device_tracker.hasika_hasika
+    zone: zone.work
+    event: enter
+  action:
+    - service: ifttt.trigger
+      data_template:
+        event: "Smart Home"
+        value1: >
+          {{ trigger.entity_id.split('.')[1].split('_')[1] | title}} reached office!
+        value2: ""
+    - service: mqtt.publish
+      data_template:
+        topic: !secret mqtt_announcement_topic
+        payload: "{{ trigger.entity_id.split('.')[1].split('_')[1] }} reached office!"
+
+- alias: Alert When Someone left Office
+  trigger:
+    platform: zone
+    entity_id:
+      - device_tracker.mallika_mallika
+      - device_tracker.suresh_suresh
+      - device_tracker.srinika_srinika
+      - device_tracker.hasika_hasika
+    zone: zone.work
+    event: leave
+  action:
+    - service: ifttt.trigger
+      data_template:
+        event: "Smart Home"
+        value1: >
+          {{ trigger.entity_id.split('.')[1].split('_')[1]| title }} left office!
+        value2: ""
+    - service: mqtt.publish
+      data_template:
+        topic: !secret mqtt_announcement_topic
+        payload: "{{ trigger.entity_id.split('.')[1].split('_')[1] }} left office!"
+
+###################################################################################################
+# Alerts when no one is home. There is another script in Watchdog.yaml that turns home security system 
+# ON after 10 minutes of no one being home
+#
+- alias: Alert when everyone is AWAY
+  trigger:
+    platform: state
+    entity_id: group.all_devices
+    from: 'home'
+    to: 'not_home'
+  action:
+    - service: script.notify_home_status
+    - service: ifttt.trigger
+      data: {"event":"Smart Home", "value1":"Warning - No one's at home at the moment!!!", "value2":""}
+###################################################################################################        
