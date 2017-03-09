@@ -1,0 +1,348 @@
+# Groups Configuration File - Use this file to group/organize 
+# entities together
+
+######################################################
+#                       VIEWS                        #
+######################################################
+family_view:
+  view: yes
+  name: Family
+  icon: mdi:account-multiple
+  entities:
+    - group.home_security_system
+    - group.dark_sky
+    - group.date__time
+    - group.weather
+    - group.family
+    - group.batteries
+    - group.travel_time
+
+lights_switches:
+  view: yes
+  name: Lights and Swithches
+  icon: mdi:lightbulb-on
+  entities:
+    - group.all_lights
+    - group.bedroom_lights
+    - group.all_switches
+    - group.outdoor_lights
+    - group.kitchen_lights
+    - group.family_room_lights
+    - group.master_bedroom_lights
+    - group.custom_switches
+    - group.etekcity_rf_switches
+
+mediacenter_view:
+  view: yes
+  name: Media Center
+  icon: mdi:television
+  entities:
+    - media_player.sharp_tv
+
+system_view:
+  view: yes
+  name: System Info
+  icon: mdi:settings
+  entities:
+    - group.system_monitor
+    - group.ads_blocked
+    - group.internet_speed
+
+zwave_view:
+  view: yes
+  name: Z-Wave Stuff
+  icon: mdi:radio-tower
+  entities:
+    - group.upstairs_multisensor
+    - group.downstairs_multisensor
+
+automation_view:
+  view: yes
+  name: Automation
+  icon: mdi:arrow-right-drop-circle
+  entities:
+    - group.bedtime_automations
+    - group.general_automations
+    - group.home_security_automations
+    - group.downstairs_motion_automations
+    - group.upstairs_motion_automations
+    - group.tv_automations
+    - group.watchdog_automations
+    - group.weather_automations
+
+scripts_view:
+  view: yes
+  name: Scripts
+  icon: mdi:script
+  entities:
+    - group.all_scripts
+    - group.scripts
+    - group.sensors
+
+superfun_view:
+  view: yes
+  name: LOL
+  icon: mdi:emoticon-tongue
+  entities:
+    - group.super_fun
+    
+######################################################
+#                       GROUPS                       #
+######################################################
+Date & Time:
+  entities:
+    - sensor.time
+    - sensor.date
+
+Family:
+  entities:
+    - device_tracker.suresh_suresh
+    - device_tracker.mallika_mallika
+    - device_tracker.srinika_srinika
+    - device_tracker.hasika_hasika
+
+Batteries:
+  entities:
+    - sensor.hasikas_iphone_battery
+    - sensor.mallikas_iphone_battery
+    - sensor.srinikas_iphone_battery
+    - sensor.sureshs_iphone_battery  
+
+Travel Time:
+  entities:
+    - sensor.home2work
+    - sensor.work2home
+    - sensor.suresh2home
+    - sensor.suresh2work
+  
+Kitchen Lights:
+  entities:
+    - light.dinette
+
+Bedroom Lights:
+  entities:
+    - switch.kids_bedroom
+    - switch.garage_lights
+    - switch.guest_bedroom_1
+    - switch.guest_bedroom_2
+
+Family Room Lights:
+  entities:
+    - light.hue_color_lamp_1
+    - light.hue_color_lamp_2
+    - light.hue_color_lamp_3
+    - light.family_room
+    
+Master Bedroom Lights:
+  entities:
+    - light.master_bedroom_1
+    - light.master_bedroom_2
+    - light.master_bedroom
+
+Outdoor Lights:
+  entities:
+    - switch.wemofrontporchlightswitch
+    - switch.wemobackyardlightswitch
+    - switch.wemoswitch1
+
+Etekcity RF Switches:
+  entities:
+    - switch.switch_one
+    - switch.switch_two
+    - switch.switch_three
+    - switch.switch_four
+    - switch.switch_five
+    
+Custom Switches:
+  entities:
+    - switch.home_security
+    - switch.tv
+    - switch.tv_backlight
+    - input_boolean.short_flash
+    - input_boolean.long_flash
+
+System Monitor:
+  entities:
+    - sensor.cpu_use
+    - sensor.cpu_speed
+    - sensor.ram_free
+    - sensor.disk_free_
+    - sensor.ipv4_address_wlan0
+    - sensor.last_boot
+    - sensor.since_last_boot
+    - sensor.cpu_temperature
+
+Home Security System:
+  entities:
+    - alarm_control_panel.simplisafe
+    - automation.notify_simplisafe_off
+    - automation.notify_simplisafe_home
+    - automation.notify_simplisafe_away
+    - automation.notify_simplisafe_triggered
+
+Weather:
+  entities:
+    - sun.sun
+    - sensor.pws_weather
+    - sensor.pws_temp_f
+    - sensor.pws_feelslike_f
+    - sensor.pws_wind_mph
+    - sensor.pws_heat_index_f
+    - sensor.pws_relative_humidity
+    - sensor.pws_visibility_mi
+
+Dark Sky:
+  entities:
+    - sensor.dark_sky_wind_speed
+    - sensor.dark_sky_wind_bearing
+    - sensor.dark_sky_visibility
+    - sensor.dark_sky_temperature
+    - sensor.dark_sky_summary
+    - sensor.dark_sky_pressure
+    - sensor.dark_sky_precip_probability
+    - sensor.dark_sky_precip_intensity
+    - sensor.dark_sky_precip
+    - sensor.dark_sky_ozone
+    - sensor.dark_sky_nearest_storm_distance
+    - sensor.dark_sky_nearest_storm_bearing
+    - sensor.dark_sky_minutely_summary
+    - sensor.dark_sky_icon
+    - sensor.dark_sky_humidity
+    - sensor.dark_sky_hourly_summary
+    - sensor.dark_sky_dew_point
+    - sensor.dark_sky_daily_summary
+    - sensor.dark_sky_daily_max_precip_intensity
+    - sensor.dark_sky_daily_low_temperature
+    - sensor.dark_sky_daily_low_apparent_temperature
+    - sensor.dark_sky_daily_high_temperature
+    - sensor.dark_sky_daily_high_apparent_temperature
+    - sensor.dark_sky_cloud_coverage
+    - sensor.dark_sky_apparent_temperature
+
+Internet Speed:
+  entities:
+    - sensor.speedtest_ping 
+    - sensor.speedtest_upload
+    - sensor.speedtest_download
+
+General Automations:
+  entities:
+    - automation.startup_notification
+    - automation.heal_zwave_network
+    - automation.notify_status
+    - automation.update_available_notification
+    - automation.status_updates_to_mqtt
+    - automation.short_flash_all_lights
+    - automation.long_flash_all_lights
+    - automation.goodnight_blink_front_room_light
+    - automation.joke_of_the_hour
+
+Weather Automations:
+  entities:
+    - automation.alert_daily_weather
+    - automation.alert_wind_speeds_high
+    - automation.alert_wind_speeds_hurricane
+    - automation.alert_wind_speeds_medium
+    - automation.high_wind_speed_flash_lights
+    
+Watchdog Automations:
+  entities:
+    - automation.backyard_light_watchdog
+    - automation.frontroom_light_watchdog
+    - automation.frontyard_light_watchdog
+    - automation.home_security_system_watchdog
+    - automation.garage_lights_watchdog
+    - automation.guest_bedroom_1_light_watchdog
+    - automation.kids_bedroom_light_watchdog
+    - automation.guest_bedroom_2_light_watchdog
+    
+Downstairs Motion Automations:
+  entities:
+    - automation.motion001
+    - automation.motion002
+    - automation.motion003
+    - automation.motion004
+    - automation.motion005
+    - automation.motion007
+    
+Upstairs Motion Automations:
+  entities:
+    - automation.upstairs_motion_off
+    - automation.upstairs_motion_on
+
+Bedtime Automations:
+  entities:
+    - automation.kitchen_light_off_at_eight_am
+    - automation.indoor_lights_on_early_morning
+    - automation.indoor_lights_on_before_sunset    
+    - automation.outdoor_lights_off_at_sunrise
+    - automation.outdoor_lights_on_at_sunset
+    - automation.goodnight_turn_lights_off
+    - automation.master_bedroom_lights_on_in_the_morning_suresh
+    - automation.master_bedroom_lights_on_in_the_morning_mallika
+    - automation.master_bedroom_lights_off_in_the_morning_suresh
+    - automation.master_bedroom_lights_off_in_the_morning_mallika
+    - automation.goodnight_dim_kitchen_lights
+    - automation.goodnight_dim_tv_light_1
+    - automation.goodnight_dim_tv_light_2
+    - automation.goodnight_dim_tv_light_3
+
+TV Automations:
+  entities:
+    - automation.turn_tv_off
+    - automation.turn_tv_on
+    - automation.turn_lights_on_when_tv_is_turned_off
+    - automation.restore_family_room_lights_to_tv_mode
+    - automation.dim_indoor_lights_when_tv_is_on
+    - automation.backlight_is_on_when_tv_is_on
+    - automation.backlight_off_when_tv_is_off
+    - automation.turn_tv_backlights_off
+    - automation.turn_tv_backlights_on
+
+Home Security Automations:
+  entities:
+    - automation.goodnight_homesecurity_on
+    - automation.notify_simplisafe_away
+    - automation.notify_simplisafe_home
+    - automation.notify_simplisafe_off
+    - automation.notify_simplisafe_triggered
+    - automation.turn_simplisafe_off
+    - automation.turn_simplisafe_on
+    - automation.home_security_system_on_at_sunset
+
+Ads Blocked:
+  entities:
+    - sensor.dns_queries_today
+    - sensor.domains_being_blocked
+    - sensor.ads_blocked_today
+    - sensor.ads_percentage_today
+
+Scripts:
+  entities:
+    - script.script_tv_backlight_on
+    - script.script_tv_backlight_off
+    - script.notify_home_status
+    - script.ifttt_notify
+    - script.voice_notify
+
+Downstairs MultiSensor:
+  entities:
+    - binary_sensor.aeotec_zw074_multisensor_gen5_sensor_2_0
+    - sensor.aeotec_zw074_multisensor_gen5_temperature_2_1
+    - sensor.aeotec_zw074_multisensor_gen5_relative_humidity_2_5
+    - sensor.aeotec_zw074_multisensor_gen5_luminance_2_3
+    - sensor.aeotec_zw074_multisensor_gen5_alarm_level_2_1
+    - sensor.aeotec_zw074_multisensor_gen5_alarm_type_2_0
+    - sensor.aeotec_zw074_multisensor_gen5_burglar_2_10
+    - sensor.aeotec_zw074_multisensor_gen5_sourcenodeid_2_2
+
+Upstairs MultiSensor:
+  entities:
+    - binary_sensor.aeotec_zw074_multisensor_gen5_sensor_3_0
+    - sensor.aeotec_zw074_multisensor_gen5_temperature_3_1
+    - sensor.aeotec_zw074_multisensor_gen5_relative_humidity_3_5
+    - sensor.aeotec_zw074_multisensor_gen5_luminance_3_3
+    - sensor.aeotec_zw074_multisensor_gen5_burglar_3_10
+    - sensor.aeotec_zw074_multisensor_gen5_sourcenodeid_3_2
+    - sensor.aeotec_zw074_multisensor_gen5_alarm_type_3_0
+    - sensor.aeotec_zw074_multisensor_gen5_alarm_level_3_1

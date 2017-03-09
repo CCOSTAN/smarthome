@@ -1,0 +1,28 @@
+
+mallika_mallika:
+  name: Mallika
+  mac:
+  picture: /local/mallika.jpg
+  track: yes
+  hide_if_away: no
+
+suresh_suresh:
+  name: Suresh
+  mac: 
+  picture: /local/suresh.jpg
+  track: yes
+  hide_if_away: no
+
+srinika_srinika:
+  name: Srinika
+  mac: 
+  picture: /local/srinika.jpg
+  track: yes
+  hide_if_away: no
+
+hasika_hasika:
+  name: Hasika
+  mac: 
+  picture: /local/hasika.jpg
+  track: yes
+  hide_if_away: no

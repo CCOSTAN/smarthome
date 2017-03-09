@@ -1,0 +1,9 @@
+#---------------------------------------------------------------------------------------
+#
+# Home Security System Configuration File - Use this file to manage Simplisafe
+#
+#---------------------------------------------------------------------------------------
+  - platform: simplisafe
+    name: Simplisafe
+    username: !secret simplisafe_username
+    password: !secret simplisafe_password

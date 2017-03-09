@@ -1,0 +1,236 @@
+#---------------------------------------------------------------------------------------
+# THE HOME ASSISTANT CONFIGURATION FILE - MOTHER OF ALL CONFIG FILES
+#---------------------------------------------------------------------------------------
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home 
+  # Location required to calculate the time the sun rises and sets
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: !secret home_elevation
+  # metric for Metric, imperial for Imperial
+  unit_system: imperial
+  time_zone: !secret time_zone
+  
+  # all the customizations go into this file
+  customize: !include customizations.yaml
+
+# Some settings
+updater:        # Service checks for updates
+discovery:      # Discover some devices automatically
+frontend:       # Enable the front-end
+logbook:        # View all events in a logbook
+conversation:   # Allows you to issue voice commands from the frontend in enabled browsers
+history:        # Enables support for tracking state changes over time.
+sun:            # Track the Sun and report whereabouts
+config:         # enable the new configuration panel
+
+recorder:
+  purge_days: 3
+
+zone 2:
+  name: work
+  latitude: !secret work_latitude
+  longitude: !secret work_longitude
+  radius: 200
+  icon: mdi:briefcase
+
+zone 3:
+  name: elemshool
+  latitude: !secret elem_school_latitude
+  longitude: !secret elem_school_longitude
+  radius: 200
+  icon: mdi:school
+
+zone 4:
+  name: middleschool
+  latitude: !secret station_school_latitude
+  longitude: !secret station_school_longitude
+  radius: 200
+  icon: mdi:school
+
+proximity:
+  home: 
+    devices:
+      - device_tracker.srinika_srinika
+      - device_tracker.hasika_hasika
+      - device_tracker.suresh_suresh
+      - device_tracker.mallika_mallika
+    tolerance: 50
+    unit_of_measurement: mi
+  ade: 
+    devices:
+      - device_tracker.hasika_hasika
+      - device_tracker.suresh_suresh
+    tolerance: 50
+    unit_of_measurement: mi
+  station: 
+    devices:
+      - device_tracker.srinika_srinika
+    tolerance: 50
+    unit_of_measurement: mi
+  work: 
+    devices:
+      - device_tracker.suresh_suresh
+    tolerance: 50
+    unit_of_measurement: mi    
+
+# run the following command to link gsp/gi path to HA for Gstreamer to function properly    
+# ln -s /usr/lib/python3/dist-packages/gi /srv/hass/hass_venv/lib/python3.4/site-packages
+media_player:
+  - platform: gstreamer
+
+  - platform: sharptv
+    host: !secret sharptv_ipaddress
+    name: Sharp TV
+    port: !secret sharptv_port
+    user: !secret sharptv_username
+    password: !secret sharptv_password
+    power_on_enabled: True
+    commands:
+      volume_set:
+        service: media_player.volume_set
+        data_template:
+          entity_id: media_player.sharp_tv
+          volume_level: ''
+    attributes: 
+      volume_level: media_player.sharp_tv|volume_level
+      source: media_player.sharp_tv|source
+      source_list: media_player.sharp_tv|source_list
+
+ifttt:
+  key: !secret ifttt_key
+
+http:
+  api_password: !secret api_password
+
+device_tracker:
+  - platform: owntracks
+    max_gps_accuracy: 200
+    waypoints: True
+
+mqtt:
+  broker: !secret pi_hole_mqtt_server
+  port: !secret pi_hole_mqtt_port
+  username: !secret pi_hole_mqtt_username
+  password: !secret pi_hole_mqtt_password
+  keepalive: 60
+  client_id: PI_SMART
+
+light:
+  - platform: lifx
+    broadcast: !secret lifx_broadcast_ip
+  - platform: hue
+    host: !secret philips_hue_ipaddress
+
+switch:
+  - platform: tplink
+    host: !secret tplink_garage
+    name: Garage Lights
+  - platform: tplink
+    host: !secret tplink_kids_bedroom
+    name: Kids Bedroom
+  - platform: tplink
+    host: !secret tplink_guest_bedroom_1
+    name: Guest Bedroom 1
+  - platform: tplink
+    host: !secret tplink_guest_bedroom_2
+    name: Guest Bedroom 2
+
+  # - platform: mqtt
+    # name: TV
+    # state_topic: "/home/tv"
+    # command_topic: "/home/tv"
+    # payload_on: "ON"
+    # payload_off: "OFF"
+    # retain: true
+    # optimistic: false
+    # qos: 0
+  # - platform: mqtt
+    # name: TV Backlight
+    # state_topic: "/home/tv/backlight"
+    # command_topic: "/home/tv/backlight"
+    # payload_on: "ON"
+    # payload_off: "OFF"
+    # retain: true
+    # optimistic: false
+    # qos: 0
+  # - platform: mqtt
+    # name: Home Security
+    # state_topic: "/home/simplisafe"
+    # command_topic: "/home/simplisafe"
+    # payload_on: "ON"
+    # payload_off: "OFF"
+    # retain: true
+    # optimistic: false
+    # qos: 0
+  - platform: rpi_rf
+    gpio: 17
+    switches:
+      switch_one:
+        code_on: !secret rf_switch_1_code_on
+        code_off: !secret rf_switch_1_code_off
+        pulselength: !secret rf_switch_1_pulselength
+      switch_two:
+        code_on: !secret rf_switch_2_code_on
+        code_off: !secret rf_switch_2_code_off
+        pulselength: !secret rf_switch_2_pulselength
+      switch_three:
+        code_on: !secret rf_switch_3_code_on
+        code_off: !secret rf_switch_3_code_off
+        pulselength: !secret rf_switch_3_pulselength
+      switch_four:
+        code_on: !secret rf_switch_4_code_on
+        code_off: !secret rf_switch_4_code_off
+        pulselength: !secret rf_switch_4_pulselength
+      switch_five:
+        code_on: !secret rf_switch_5_code_on
+        code_off: !secret rf_switch_5_code_off
+        pulselength: !secret rf_switch_5_pulselength
+
+wemo:
+  static:
+    - !secret wemo_switch_1
+    - !secret wemo_switch_2
+    - !secret wemo_switch_3
+
+shell_command:
+  restart_homebridge: 'sudo su pi -c "pm2 restart homebridge"'
+  restart_homeassistant: 'sudo su pi -c "sudo systemctl restart home-assistant"'
+  dog_sounds: '/usr/bin/mpg123 /home/hass/.homeassistant/audio/dog.mp3'
+
+input_boolean:
+  long_flash:
+    name: Long Flash Lights
+    initial: off
+    icon: mdi:flash-outline
+  short_flash:
+    name: Long Flash Lights
+    initial: off
+    icon: mdi:flash-outline
+  animate_upstairs_lights:
+    name: Animate Master Bedroom Lights
+    initial: off
+    icon: mdi:flash-outline
+  animate_downstairs_lights:
+    name: Animate Family Room Lights
+    initial: off
+    icon: mdi:flash-outline
+    
+zwave:
+  usb_path: /dev/ttyACM0
+  config_path: /srv/hass/hass_venv/lib/python3.4/site-packages/libopenzwave-0.3.1-py3.4-linux-armv7l.egg/config
+
+tts:
+  - platform: amazon_polly
+    aws_access_key_id: !secret aws_access_key_id
+    aws_secret_access_key: !secret aws_secret_access_key
+
+sensor: !include_dir_merge_list sensor
+group: !include groups.yaml
+automation: !include_dir_merge_list automation
+alarm_control_panel: !include alarm_control.yaml
+logger: !include logging.yaml
+script: !include_dir_merge_named script
+

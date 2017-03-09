@@ -1,0 +1,361 @@
+#---------------------------------------------------------------------------------------
+# Customizations Configuration File - contains all the customizations
+# Contains: friendly names, icons...etc
+#---------------------------------------------------------------------------------------
+    switch.wemofrontporchlightswitch:
+      friendly_name: Front Porch Lights
+      icon: mdi:lightbulb
+
+    switch.wemoswitch1:
+      friendly_name: Front Room Light
+      icon: mdi:lamp
+
+    switch.wemobackyardlightswitch:
+      friendly_name: Backyard Lights
+      icon: mdi:lightbulb
+
+    light.dinette:
+      friendly_name: Kitchen Light
+      icon: mdi:lightbulb
+
+    light.hue_color_lamp_1:
+      friendly_name: Family Room Light 1
+      icon: mdi:lightbulb
+
+    light.hue_color_lamp_2:
+      friendly_name: Family Room Light 2
+      icon: mdi:lightbulb
+
+    light.hue_color_lamp_3:
+      friendly_name: Family Room Light 3
+      icon: mdi:lightbulb
+
+    alarm_control_panel.simplisafe:
+      hidden: False
+      friendly_name: Home Security System
+      icon: mdi:security
+
+    sensor.my_alarm_control_panel:
+      friendly_name: Home Security System
+      icon: mdi:security
+
+    automation.notify_simplisafe_off:
+      friendly_name: Notify Alarm Off
+      icon: mdi:close-circle
+
+    automation.notify_simplisafe_home:
+      friendly_name: Notify Alarm Home
+      icon: mdi:security
+      
+    automation.notify_simplisafe_away:
+      friendly_name: Notify Alarm Away
+      icon: mdi:security
+
+    automation.notify_simplisafe_triggered:
+      friendly_name: Notify Alarm Triggered
+      icon: mdi:alert
+
+    sun.sun:
+      friendly_name: Sun 
+
+    sensor.pws_relative_humidity:
+      friendly_name: Humidity
+      icon: mdi:water-percent
+  
+    sensor.pws_temp_f:
+      friendly_name: Temperature
+      icon: mdi:temperature-fahrenheit
+
+    sensor.pws_feelslike_f:
+      friendly_name: Feels Like
+      icon: mdi:temperature-fahrenheit
+
+    sensor.pws_wind_mph:
+      friendly_name: Wind Speed
+      icon: mdi:weather-windy
+
+    sensor.pws_heat_index_f:
+      friendly_name: Heat Index
+
+    sensor.pws_visibility_mi:
+      friendly_name: Visibility
+
+    sensor.pws_weather:
+      friendly_name: Weather
+
+    sensor.speedtest_ping:
+      friendly_name: Ping Speed
+      icon: mdi:clock-out
+
+    sensor.speedtest_upload:
+      friendly_name: Upload Speed
+      icon: mdi:upload
+
+    sensor.speedtest_download:
+      friendly_name: Download Speed
+      icon: mdi:download
+
+    automation.login_failure:
+      friendly_name: Alert Login Failures
+      icon: mdi:alert
+
+    automation.startup_notification:
+      friendly_name: Notify Startup Events
+      icon: mdi:thumb-up
+
+    automation.update_available_notification:
+      friendly_name: Notify of new updates
+      icon: mdi:update
+
+    sensor.dns_queries_today:
+      friendly_name: DNS Queries today 
+      icon: mdi:lan-connect
+     
+    sensor.ads_percentage_today:
+      friendly_name: Percentage of Ad Traffic Blocked
+      icon: mdi:percent
+     
+    sensor.domains_being_blocked:
+      friendly_name: Total Domains Blocking
+      icon: mdi:block-helper
+
+    sensor.ads_blocked_today:
+      friendly_name: Ads Blocked Today
+      icon: mdi:do-not-disturb
+
+    automation.turn_alarm_system_on_when_no_one_is_home:
+      friendly_name: Arm Home when no one's home
+      icon: mdi:security-home
+
+    automation.send_an_alert_when_everyone_is_away:
+      friendly_name: Alert me when no one's home
+      icon: mdi:account-off
+
+    automation.outdoor_lights_on_at_sunset:
+      friendly_name: Lights ON @ Sunset
+      icon: mdi:weather-sunset-down
+
+    automation.outdoor_lights_off_at_sunrise:
+      friendly_name: Outdoor Lights OFF @ Sunrise
+      icon: mdi:weather-sunny
+
+    automation.dim_indoor_lights_at_bed_time:
+      friendly_name: Dim lights @ Bedtime
+      icon: mdi:brightness-3
+
+    automation.indoor_lights_on_early_morning:
+      friendly_name: Lights ON in the morning
+      icon: mdi:lightbulb
+
+    automation.kitchen_light_off_at_eight_am:
+      friendly_name: Indoor lights OFF after Sunrise
+      icon: mdi:lightbulb
+
+    automation.dim_indoor_lights_when_tv_is_on:
+      friendly_name: Dim lights when TV is ON
+      icon: mdi:television
+
+    automation.turn_lights_on_when_tv_is_turned_off:
+      friendly_name: When TV is OFF, Turn Lights ON
+      icon: mdi:television
+
+    automation.indoor_lights_on_before_sunset:
+      friendly_name: Indoor Lights ON Before Sunset
+      icon: mdi:lightbulb
+
+    sensor.cpu_speed:
+      friendly_name: CPU Speed
+      icon: mdi:speedometer
+
+    sensor.cpu_use:
+      friendly_name: CPU Usage
+      icon: mdi:settings
+
+    sensor.disk_free_:
+      friendly_name: Available Disk
+      icon: mdi:disk
+
+    sensor.ram_free:
+      friendly_name: Available Memory
+      icon: mdi:memory
+
+    sensor.ipv4_address_wlan0:
+      friendly_name: IP Address
+      icon: mdi:map-marker-multiple
+
+    sensor.last_boot:
+      friendly_name: Last Boot
+      icon: mdi:update
+
+    sensor.since_last_boot:
+      friendly_name: Up Since
+      icon: mdi:timer
+
+    sensor.dht_sensor_humidity:
+      friendly_name: Humidity
+      icon: mdi:water-percent
+
+    sensor.dht_sensor_temperature:
+      friendly_name: Temperature
+      icon: mdi:temperature-fahrenheit
+
+    automation.turn_on_front_room_light_with_mqtt:
+      friendly_name: Turn ON Front Room Light using MQTT
+      icon: mdi:lightbulb
+
+    automation.turn_off_front_room_light_with_mqtt:
+      friendly_name: Turn OFF Front Room Light using MQTT
+      icon: mdi:lightbulb
+
+    automation.turn_on_home_security_system_at_bed_time:
+      friendly_name: Home Security ON @ Bedtime
+      icon: mdi:security-home
+
+    automation.update_front_room_on_state:
+      friendly_name: Update Front Room Light ON Status to MQTT
+      icon: mdi:autorenew
+
+    automation.update_front_room_off_state:
+      friendly_name: Update Front Room Light OFF Status to MQTT
+      icon: mdi:autorenew
+
+    automation.home_security_system_on_at_sunset:
+      friendly_name: Home Security ON @ Sunset
+      icon: mdi:security-home
+
+    automation.restore_family_room_lights_to_tv_mode:
+      friendly_name: Restore TV Lights After Dark
+      icon: mdi:television
+
+    sensor.time:
+      friendly_name: Time
+      icon: mdi:calendar-clock
+
+    sensor.date:
+      friendly_name: Date
+      icon: mdi:calendar
+
+    script.script_tv_backlight_on:
+      friendly_name: Turn TV Backlight ON
+      icon: mdi:television
+
+    script.script_tv_backlight_off:
+      friendly_name: Turn TV Backlight OFF
+      icon: mdi:television
+
+    script.notify_home_status:
+      friendly_name: Notify Home Status
+      icon: mdi:comment-alert
+      
+    switch.switch_one:
+      friendly_name: UnAssigned
+      icon: mdi:filmstrip
+
+    switch.switch_two:
+      friendly_name: Office Room Accent Lights
+      icon: mdi:filmstrip
+
+    switch.switch_three:
+      friendly_name: Unassigned
+      icon: mdi:filmstrip
+
+    switch.switch_four:
+      friendly_name: Unassigned
+      icon: mdi:filmstrip
+
+    switch.switch_five:
+      friendly_name: Unassigned
+      icon: mdi:filmstrip
+
+    automation.motion001:
+      friendly_name: Motion ON, TV On, Light On
+      icon: mdi:run-fast
+    automation.motion002:
+      friendly_name: Motion ON, TV On, Light Off
+      icon: mdi:run-fast
+    automation.motion003:
+      friendly_name: Motion ON, TV Off, Light On
+      icon: mdi:run-fast
+    automation.motion004:
+      friendly_name: Motion ON, TV Off, Light Off
+      icon: mdi:run-fast
+    automation.motion005:
+      friendly_name: Motion OFF, TV On, Light On
+      icon: mdi:run-fast
+    automation.motion007:
+      friendly_name: Motion OFF, TV Off, Light On
+      icon: mdi:run-fast
+    automation.upstairs_motion_off:
+      friendly_name: Motion ON
+      icon: mdi:run-fast
+    automation.upstairs_motion_on:
+      friendly_name: Motion ON
+      icon: mdi:run-fast
+
+    sensor.aeotec_zw074_multisensor_gen5_burglar_3_10:
+      hidden: True    
+    sensor.aeotec_zw074_multisensor_gen5_sourcenodeid_3_2:
+      hidden: True    
+    sensor.aeotec_zw074_multisensor_gen5_alarm_type_3_0:
+      hidden: True    
+    sensor.aeotec_zw074_multisensor_gen5_alarm_level_3_1:
+      hidden: True    
+    sensor.aeotec_zw074_multisensor_gen5_alarm_type_2_0:
+      hidden: True    
+    sensor.aeotec_zw074_multisensor_gen5_burglar_2_10:
+      hidden: True    
+    sensor.aeotec_zw074_multisensor_gen5_sourcenodeid_2_2:
+      hidden: True
+    sensor.aeotec_zw074_multisensor_gen5_alarm_level_2_1:
+      hidden: True
+      
+    sensor.aeotec_zw074_multisensor_gen5_luminance_3_3:
+      friendly_name: Upstairs Light Level
+      icon: mdi:brightness-7
+    sensor.aeotec_zw074_multisensor_gen5_relative_humidity_3_5:
+      friendly_name: Upstairs Humidity
+      icon: mdi:water-percent
+    sensor.aeotec_zw074_multisensor_gen5_temperature_3_1:
+      friendly_name: Upstairs Temperature
+      icon: mdi:temperature-fahrenheit
+    binary_sensor.aeotec_zw074_multisensor_gen5_sensor_3_0:
+      friendly_name: Upstairs Motion
+      icon: mdi:run-fast
+
+    sensor.aeotec_zw074_multisensor_gen5_temperature_2_1:
+      friendly_name: Downstairs Temperature
+      icon: mdi:temperature-fahrenheit
+    sensor.aeotec_zw074_multisensor_gen5_luminance_2_3:
+      friendly_name: Downstairs Light Level
+      icon: mdi:brightness-7
+    sensor.aeotec_zw074_multisensor_gen5_relative_humidity_2_5:
+      friendly_name: Downstairs Humidity
+      icon: mdi:water-percent
+    binary_sensor.aeotec_zw074_multisensor_gen5_sensor_2_0:
+      friendly_name: Downstairs Motion
+      icon: mdi:run-fast
+
+    automation.garage_lights_watchdog:
+      friendly_name: Garage Lights Watchdog
+      icon: mdi:timer
+    automation.guest_bedroom_light_watchdog:
+      friendly_name: Guest Bedroom Light Watchdog
+      icon: mdi:timer
+    automation.kids_bedroom_light_watchdog:
+      friendly_name: Kids Bedroom Light Watchdog
+      icon: mdi:timer
+    automation.prayer_room_light_watchdog:
+      friendly_name: Prayer Room Light Watchdog
+      icon: mdi:timer
+
+    automation.joke_of_the_hour:
+      icon: mdi:emoticon-tongue
+
+    sensor.hasikas_iphone_battery:
+      icon: mdi:battery
+    sensor.mallikas_iphone_battery:
+      icon: mdi:battery
+    sensor.srinikas_iphone_battery:
+      icon: mdi:battery
+    sensor.sureshs_iphone_battery:
+      icon: mdi:battery
