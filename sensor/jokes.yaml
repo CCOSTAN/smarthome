@@ -1,0 +1,6 @@
+- platform: rest
+  scan_interval: 3600
+  resource: 'http://api.icndb.com/jokes/random'
+  method: GET
+  name: Suresh's Jokes
+  value_template: '{{value_json.value.joke}}'

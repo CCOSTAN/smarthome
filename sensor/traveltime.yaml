@@ -1,0 +1,31 @@
+- platform: google_travel_time
+  name: Home2Work
+  api_key: !secret google_travel_time_apikey 
+  origin: zone.home
+  destination: zone.work
+  options:
+    mode: driving
+
+- platform: google_travel_time
+  name: Work2Home
+  api_key: !secret google_travel_time_apikey 
+  origin: zone.work
+  destination: zone.home
+  options:
+    mode: driving
+
+- platform: google_travel_time
+  name: Suresh2Home
+  api_key: !secret google_travel_time_apikey 
+  origin: device_tracker.suresh_suresh
+  destination: zone.home
+  options:
+    mode: driving
+
+- platform: google_travel_time
+  name: Suresh2Work
+  api_key: !secret google_travel_time_apikey 
+  origin: device_tracker.suresh_suresh
+  destination: zone.work
+  options:
+    mode: driving

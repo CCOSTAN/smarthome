@@ -1,0 +1,17 @@
+#- platform: template
+#  sensors:
+#    my_alarm_control_panel:
+#      value_template: >-
+#        {%- if is_state("alarm_control_panel.simplisafe", "armed_home") -%}
+#        HOME & ARMED
+#        {%- elif is_state("alarm_control_panel.simplisafe", "armed_away") -%}
+#        AWAY & ARMED
+#        {%- elif is_state("alarm_control_panel.simplisafe", "disarmed") -%}
+#        OFF!
+#        {%- elif is_state("alarm_control_panel.simplisafe", "pending") -%}
+#        PENDING
+#        {%- elif is_state("alarm_control_panel.simplisafe", "triggered") -%}
+#        TRIGGERED!!!
+#        {%- endif %}
+
+

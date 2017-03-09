@@ -1,0 +1,19 @@
+- platform: rest
+  name: dns_queries_today
+  resource: http://192.168.xxx.xxx/admin/api.php  
+  value_template: '{{ value_json.dns_queries_today }}'
+
+- platform: rest
+  name: domains_being_blocked
+  resource: http://192.168.xxx.xxx/admin/api.php  
+  value_template: '{{ value_json.domains_being_blocked }}'
+
+- platform: rest
+  name: ads_blocked_today
+  resource: http://192.168.xxx.xxx/admin/api.php  
+  value_template: '{{ value_json.ads_blocked_today }}'
+
+- platform: rest
+  name: ads_percentage_today
+  resource: http://192.168.xxx.xxx/admin/api.php  
+  value_template: '{{ value_json.ads_percentage_today }}'
