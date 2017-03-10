@@ -7,7 +7,7 @@ The primary Home Automation software/platform that I use is [Home Assistant](htt
 All the Raspberry Pi's I have at home are wirelessly connected to my home network, and can talk to each other seemlessly via mqtt messaging. Mqtt is heavily used at home because it is light weight, loosely couples devices from each other, provides data persistence and security. The devices can work independently to each other and can be taken off-line without having to worry - making it easy for me to do plug-and-play work and make changes on the fly :)
 
 The following picture shows high level architecture of my home network, and what I use for basic automation stuff.
-![My Home Automation Setup](https://github.com/skalavala/smarthome/blob/master/Home%20Automation%20Setup%20-%20Kalavala.jpg)
+![My Home Automation Setup](https://github.com/skalavala/smarthome/blob/master/images/Home%20Automation%20Setup%20-%20Kalavala.jpg)
 
 Please feel free to let me know if you find any issues with my code, and/or have any suggestions. Thank you!
 
