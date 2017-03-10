@@ -10,7 +10,7 @@ The following picture shows high level architecture of my home network, and what
 Please feel free to let me know if you find any issues with my code, and/or have any suggestions. Thank you!
 
 
-**Devices I Own currently:**
+**Devices I have currently:**
 
 * Wemo Switches
 
