@@ -28,9 +28,20 @@ Please feel free to let me know if you find any issues with my code, and/or have
 
 * Onkyo Receiver
 
+* Home Security System
+
 * Aeotec ZWave Z-Stick
 
 * Aeotec ZWave Multi Sensors
 
+* Bunch of Raspberry Pi's
 
-Custom Built Smart outlet - where I used a PiZero and relay switch to turn ON/OFF the electrical outlet. I made a small wooden box to house all the items. It is a poor man's version of smart electrical outlet, but a very smart one, and I have more control over this outlet than the commercial smart outlets. 
+* Bunch of Pi Zero's
+
+* Cheap Bluetooth speakers from Amazon
+
+* Radio Frequency Transmitters and Receivers
+
+* Sensor kit from Raspberry Pi for experimentation - 
+
+Custom Built Smart outlet - where I used a PiZero and relay switch to turn ON/OFF the electrical outlet. I made a small wooden box to house all the items. It is a poor man's version of smart electrical outlet, but a very smart one, and I have more control over this outlet than the commercial smart outlets.
