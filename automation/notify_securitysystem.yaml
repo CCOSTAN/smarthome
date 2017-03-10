@@ -1,7 +1,7 @@
 ##############################################################################################################################
 # This script notifies Home Security System state changes. 
 # Everytime someone changes the Alarm mode, it goes to unknown/pending state first and then goes to the desired state
-# I've put condition not to notify and announce the intermediate "pending/unknown" state
+# I've put conditions not to notify and announce the intermediate "pending/unknown" state
 ##############################################################################################################################
 - alias: Notify Home Security Status
   trigger:
