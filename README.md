@@ -13,18 +13,24 @@ Please feel free to let me know if you find any issues with my code, and/or have
 **Devices I Own currently:**
 
 Wemo Switches
+
 TP Link HS-200 Switches
 
 Wemo Outlets
+
 Eteckcity RF Outlets
 
 Lifx Bulbs
+
 Philips Hue Bulbs
 
 Sharp Aquos Smart TV
+
 Onkyo Receiver
 
 Aeotec ZWave Z-Stick
+
 Aeotec ZWave Multi Sensors
 
-Custom Built Smart outlet - where I used a PiZero and relay switch to turn ON/OFF the electrical outlet. I made a small wooden box to house all the items. It is a poor man's version of smart electrical outlet, but a very smart one, and I have more control over this outlet than the commercial smart outlets.
+
+Custom Built Smart outlet - where I used a PiZero and relay switch to turn ON/OFF the electrical outlet. I made a small wooden box to house all the items. It is a poor man's version of smart electrical outlet, but a very smart one, and I have more control over this outlet than the commercial smart outlets. 
