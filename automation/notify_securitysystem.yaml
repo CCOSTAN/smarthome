@@ -12,13 +12,13 @@
       data_template:
         event: "Smart Home"
         value1: >
-            {% if trigger.to_state.state == "disarmed" %}
-                Attention!: Your Home Security System is OFF. All sensors are disabled.
-            {% elif trigger.to_state.state == "armed_home" %}
+            {% if trigger.to_state.state | lower == "disarmed" %}
+                Attention!: Your Home Security System is turned OFF. All sensors are completely disabled.
+            {% elif trigger.to_state.state | lower == "armed_home" %}
                 Your Home Security System is now set to Home mode. Your home is now secured.
-            {% elif trigger.to_state.state == "armed_away" %}
+            {% elif trigger.to_state.state | lower == "armed_away" %}
                 Your Home Security System is now set to Away mode. All the motion sensors are fully activated.
-            {% elif trigger.to_state.state == "triggered" %}
+            {% elif trigger.to_state.state | lower == "triggered" %}
                 Attention!: Your Home Security System is triggered!" It has been notified to the authorities. Police and help is on the way!
             {% endif %}
         value2: ""
@@ -27,11 +27,11 @@
         topic: !secret mqtt_announcement_topic
         payload: >
             {% if trigger.to_state.state == "disarmed" %}
-                "Attention!: Your Home Security System is OFF. All sensors are disabled."
+                Attention!: Your Home Security System is turned OFF. All sensors are completely disabled.
             {% elif trigger.to_state.state == "armed_home" %}
-                "Your Home Security System is now set to Home mode. Your home is now secured."
+                Your Home Security System is now set to Home mode. Your home is now secured.
             {% elif trigger.to_state.state == "armed_away" %}
-                "Your Home Security System is now set to Away mode. All the motion sensors are fully activated."
+                Your Home Security System is now set to Away mode. All the motion sensors are fully activated.
             {% elif trigger.to_state.state == "triggered" %}
-                "Attention!: Your Home Security System is triggered!" It has been notified to the authorities. Police and help is on the way!.
+                Attention!: Your Home Security System is triggered!" It has been notified to the authorities. Police and help is on the way!.
             {% endif %}
