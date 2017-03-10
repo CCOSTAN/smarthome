@@ -13,7 +13,7 @@ The following picture shows high level architecture of my home network, and what
 
 Please feel free to let me know if you find any issues with my code, and/or have any suggestions. Thank you!
 
-![See my Poor man's Central Home Audio System Here](https://github.com/skalavala/smarthome/blob/master/Central%20Audio%20System%20For%20Home%20-%20Kalavala.jpg)
+![See my Poor man's Central Home Audio System Here](https://github.com/skalavala/smarthome/blob/master/centralaudio.md)
 
 **Devices I have currently:**
 
