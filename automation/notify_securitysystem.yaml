@@ -1,3 +1,8 @@
+##############################################################################################################################
+# This script notifies Home Security System state changes. 
+# Everytime someone changes the Alarm mode, it goes to unknown/pending state first and then goes to the desired state
+# I've put condition not to notify and announce the intermediate "pending/unknown" state
+##############################################################################################################################
 - alias: Notify Home Security Status
   trigger:
     platform: state
@@ -7,10 +12,26 @@
       data_template:
         event: "Smart Home"
         value1: >
-          "Home Security System state just changed from {{ trigger.from_state.state }} to {{ trigger.to_state.state }}!"
-        value2: ""  
+            {% if trigger.to_state.state == "disarmed" %}
+                Attention!: Your Home Security System is OFF. All sensors are disabled.
+            {% elif trigger.to_state.state == "armed_home" %}
+                Your Home Security System is now set to Home mode. Your home is now secured.
+            {% elif trigger.to_state.state == "armed_away" %}
+                Your Home Security System is now set to Away mode. All the motion sensors are fully activated.
+            {% elif trigger.to_state.state == "triggered" %}
+                Attention!: Your Home Security System is triggered!" It has been notified to the authorities. Police and help is on the way!
+            {% endif %}
+        value2: ""
     - service: mqtt.publish
       data_template:
         topic: !secret mqtt_announcement_topic
         payload: >
-          "Home Security System state just changed from '{{ trigger.from_state.state }}' to '{{ trigger.to_state.state }}'."
+            {% if trigger.to_state.state == "disarmed" %}
+                "Attention!: Your Home Security System is OFF. All sensors are disabled."
+            {% elif trigger.to_state.state == "armed_home" %}
+                "Your Home Security System is now set to Home mode. Your home is now secured."
+            {% elif trigger.to_state.state == "armed_away" %}
+                "Your Home Security System is now set to Away mode. All the motion sensors are fully activated."
+            {% elif trigger.to_state.state == "triggered" %}
+                "Attention!: Your Home Security System is triggered!" It has been notified to the authorities. Police and help is on the way!.
+            {% endif %}
