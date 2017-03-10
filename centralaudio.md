@@ -1,4 +1,4 @@
-**Poor man's version of central audio system for home**
+**Poor man's version of Central Audio System**
 
 I have always wanted to have a centralized audio system for my home, since my home is not currently wired for that, I have two choices  - get a commercial central audio system by spending a boat load of money, or make my own. I chose to build my own with a bunch of Raspberry Pi devices and some cheap bluetooth speakers from amazon.
 
