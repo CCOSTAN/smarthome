@@ -10,4 +10,4 @@ Currently this setup is only used for announcements around the house. My next st
 
 Here is the set up of my poor man's smart central audio system design:
 
-![My Centralized Audio Setup ](https://github.com/skalavala/smarthome/blob/master/Central%20Audio%20System%20For%20Home%20-%20Kalavala.jpg)
+![My Centralized Audio Setup ](https://github.com/skalavala/smarthome/blob/master/images/Central%20Audio%20System%20For%20Home%20-%20Kalavala.jpg)
