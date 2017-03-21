@@ -9,3 +9,5 @@ Here is the picture - of my "Smart" Multi-Room Audio System:
 ![My Smart Whole House Audio System ](https://github.com/skalavala/smarthome/blob/master/images/MultiroomAudioSystem-Kalavala.jpg)
 
 I want to make a note that the speakers are not ceiling-mount speakers. I got a bunch of bluetooth speakers from amazon, and used some old speakers that I have lying around the house. Since all my Raspberry Pi's are connected wirelessly, all I need is a power supply. I've put all the Raspberry Pi's and speakers behind the sofas/couches and under the beds :smile:
+
+Special thanks to @mgolisch, @dale3h, @happyleavesaoc and so many github fellows!
