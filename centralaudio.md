@@ -1,13 +1,9 @@
-##Poor man's version of Central Audio System
+##Poor man's version of Multi-room Audio System
 
-I have always wanted to have a centralized audio system for my home, since my home is not currently wired for that, I have two choices  - get a commercial central audio system by spending a boat load of money, or make my own. I chose to build my own with a bunch of Raspberry Pi devices, some {cheap} bluetooth speakers from amazon and some old speakers.
+I have always wanted to have a centralized audio system for my home, since my home is not currently wired for that, I have two choices  - get a commercial central audio system by spending a boat load of money, or make my own. I chose to build my own with a bunch of Raspberry Pi devices, some {cheap} bluetooth speakers from amazon and leverage old speakers lying at home.
 
-The way it works now is my primary Home Automation Server(Raspberry Pi), running Home Assistant publishes frequent updates, statuses, announcements...etc to a specific topic on the local MQTT server. I then have Raspberry Pi's in each floor that are on the same network, subscribes to that topic and receives the messages instantly. Instead of having the speakers in wall, I tuck them away behind the sofas and under the bed :smile:
+The way it works now is pretty simple. My primary Home Automation Server (Raspberry Pi), running Home Assistant software also runs Mopidy, Snapcast Server components. In each room, I have a Raspberry Pi physically connected to a speaker, that runs snapcast client software. All the Raspberry Pi's are connected to the same network/subnet. This set up allows me to play music across all the rooms, as well as it allows me to annouce any Home Assistant related messages/events. Since I have mopidy (mpd) configured in my Home Assistant, I can pause, play media and automate anyway I like it.
 
-Based on the tracker information and motion sensor data, the individual RPi determines what to do with that data. For e.g. when people are not home, there is no reason to play the audio or call test-to-speech and play the announcements. Similarly, when people are home, and no motion detected upstairs, and TV is on downstairs, it will only play the audio downstairs and not upstairs.
+Here is the picture - of my "Smart" Multi-Room Audio System:
 
-Currently this setup is only used for announcements around the house. My next step would be to use the same setup to play music across the rooms using `snapcast` and `Gstreamer`.
-
-Here is the set up of my poor man's smart central audio system design:
-
-![My Centralized Audio Setup ](https://github.com/skalavala/smarthome/blob/master/images/MultiroomAudioSystem-Kalavala.jpg)
+![My Smart Whole House Audio System ](https://github.com/skalavala/smarthome/blob/master/images/MultiroomAudioSystem-Kalavala.jpg)
