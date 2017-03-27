@@ -6,8 +6,7 @@ Turn Home Security System ON at Sunset | event is sunset | Turn ON Home Security
 Kitchen Lights on early morning during school days | exactly at 5:30 AM | turn kitchen lights ON |
 Master Bedroom lights ON (Mallika side)at 5:20 | Exactly at 5:20 AM | Turn ON Mallika's side of the bed lamp at 10% brightness with transition of 1 minute from 0 to 10% brightness;Do not disturb Suresh |
 Master Bedroom lights OFF (Mallika side)at 5:45 | Exactly at 5:45 AM | Turn OFF Mallika's side of the bed lamp with no transition;Do not disturb Suresh |
-Master Bedroom lights ON at 6:59 AM | Exactly at 6:59 AM | Turn ON Master Bedroom lights with transition of 2 minutes at 25% brightness;Suresh's wake up alarm will go off at 7:00 AM
- 			Suresh would like to snooze a couple of times, while he is in bed, make announcements of daily weather, commute to work, temperature on bluetooth speaker |
+Master Bedroom lights ON at 6:59 AM | Exactly at 6:59 AM | Turn ON Master Bedroom lights with transition of 2 minutes at 25% brightness;Suresh's wake up alarm will go off at 7:00 AM;Suresh would like to snooze a couple of times, while he is in bed, make announcements of daily weather, commute to work, temperature on bluetooth speaker |
 Master Bedroom Lights OFF at 9:00 AM | Only during Weekdays (mon, tue, wed, thu, fri) | Suresh is most likely at work, turn off master bed room lights;TODO: Check device_tracker and the location, When Suresh leaves home, turn off master bedroom lights immediately |
 Turn Kitchen Lights OFF at 8:15 AM | Exactly at 8:15 AM | Turn OFF kitchen lights |
 Dim Kitchen lights 15 minutes before bed time | Exactly at 9:45 PM. (Our bed time is at 10:00 PM) | Turn ON the light and set the brightness of the light to 15% |
