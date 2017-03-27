@@ -1,6 +1,6 @@
 ## This is a test table.
 
-|Automation | Trigger | Condition(s) | Action | Url Link |
+|Automation | Trigger | Conditions   | Action | Url Link |
 | --------- | ------- | ------------ | ------ | -------- |
  | Outdoor Turn Lights ON 15 minutes before sunset | Platform = sunDescription: 
 			sun is 'below horizon' or event is sunset
