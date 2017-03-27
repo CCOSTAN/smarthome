@@ -1,6 +1,6 @@
 <table><tr><th>Automation</th><th>Trigger</th><th>Condition</th><th>Action</th><th>Link</th></tr><tr><td>Outdoor Turn Lights ON 15 minutes before sunset</td><td>
  			sun is below horizon or event is sunset       offset -15 minutes
- 		</td><td>None</td><td><ul><li></li><li>sun is below horizon or event is sunset       offset -15 minutes</li><li></li></ul></td><td>tbd</td></tr><tr><td>Outdoor Turn Lights OFF 15 minutes after sunrise</td><td>
+ 		</td><td>None</td><td><ul><li>sun is below horizon or event is sunset       offset -15 minutes</li></ul></td><td>tbd</td></tr><tr><td>Outdoor Turn Lights OFF 15 minutes after sunrise</td><td>
  			sun is 'above horizon' or event is sunrise
        offset +15 minutes
  		</td><td>Every day</td><td>
