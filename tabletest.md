@@ -1,16 +1,14 @@
-Automation   |   Trigger   |   Conditions   |  Action   |  Url Link  
-----------   |   -------   |   -----------  |  -------  |  --------- 
+Automation   |   Trigger   |  Conditions  |  Action   |  Url Link  
+----------   |   -------   |  ----------- |  -------  |  --------- 
 Outdoor Turn Lights ON 15 minutes before sunset | 
- 			sun is below horizon or event is sunset
- 			offset -15 minutes
+ 			sun is below horizon or event is sunset; offset -15 minutes
  		 | 
          None
  		 | 
  			Turn Light(s) ON
  		 | TBD |  
 Outdoor Turn Lights OFF 15 minutes after sunrise | 
- 			sun is 'above horizon' or event is sunrise
- 			offset +15 minutes
+ 			sun is 'above horizon' or event is sunrise; offset +15 minutes
  		 | 
  			Every day
  		 | 
@@ -19,36 +17,28 @@ Outdoor Turn Lights OFF 15 minutes after sunrise |
 Turn Home Security System ON at Sunset | 
  			event is sunset
  		 | 
- 			Do it only when people are at home
- 			Weekdays ONLY
- 			Home Security System is Disarmed
+ 			Do it only when people are at home;Weekdays ONLY;Home Security System is Disarmed
  		 | 
- 			Turn ON Home Security System in 'Home' mode
- 			Send an alert
- 			Drop a message in the announcement queue
+ 			Turn ON Home Security System in 'Home' mode;Send an alert;Drop a message in the announcement queue
  		 | TBD |  
 Kitchen Lights on early morning during school days | 
  			exactly at 5:30 AM
  		 | 
- 		    Weekdays (mon, tue, wed, thu, fri)
- 			Only during school days check (if school days input_boolean is ON)
+ 		    Weekdays (mon, tue, wed, thu, fri);Only during school days check (if school days input_boolean is ON)
  		 | 
  			turn kitchen lights ON
  		 | TBD |  
 Master Bedroom lights ON (Mallika side)at 5:20 | 
  			Exactly at 5:20 AM
  		 | 
- 			Only during Weekdays (mon, tue, wed, thu, fri)
- 			Only during school days check (if school days input_boolean is ON)
+ 			Only during Weekdays (mon, tue, wed, thu, fri);Only during school days check (if school days input_boolean is ON)
  		 | 
- 			Turn ON Mallika's side of the bed lamp at 10% brightness with transition of 1 minute from 0 to 10% brightness
- 			Do not disturb Suresh
+ 			Turn ON Mallika's side of the bed lamp at 10% brightness with transition of 1 minute from 0 to 10% brightness;Do not disturb Suresh
  		 | TBD |  
 Master Bedroom lights OFF (Mallika side)at 5:45 | 
  			Exactly at 5:45 AM
  		 | 
- 			Only during Weekdays (mon, tue, wed, thu, fri)
- 			Only during school days check (if school days input_boolean is ON)
+ 			Only during Weekdays (mon, tue, wed, thu, fri);Only during school days check (if school days input_boolean is ON)
  		 | 
  			Turn OFF Mallika's side of the bed lamp with no transition
  			Do not disturb Suresh
