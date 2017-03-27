@@ -39,7 +39,6 @@ New Home Assistant Update | updater.updater | Send an alert with link to HA |
 Timer enabled smart Switch | light status is On | Turn off light |
 Weather - Heavy Wind Alerts | Entity - sensor.dark_sky_wind_speed | Send an alert;flash lights |
 Weather - Super Heavy Winds | sensor.dark_sky_wind_speed | Send an alert to stay indoors;Announce in the house;Flash lights |
-Provide Daily Weather Update | at 7:00 AM | Send an Alert
- 			Announce in the house |
+Provide Daily Weather Update | at 7:00 AM | Send an Alert;Announce in the house |
 Greet Family Members | - device_tracker.mallika_mallika;- device_tracker.suresh_suresh;- device_tracker.srinika_srinika;- device_tracker.hasika_hasika; | Announce, Welcome, family member! |
 Z-wave | at 4:30 in the morning | Heal Z-Wave network |
