@@ -1,4 +1,7 @@
-Copy and paste the following in the templates page of your HA to see all the entities and their attributes in one place in a well formatted way.
+## Ever wondered how to get all the Entity IDs and see all the attributes of all entities from Home Assistant?
+
+
+Just copy and paste the following in the templates page of your HA to see all the entities and their attributes in one place in a well formatted way.
 
 The information is formatted in such a way, that it can be used to customize, create groups and views to manage your entities.
 
