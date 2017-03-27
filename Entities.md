@@ -3,7 +3,7 @@ Copy and paste the following in the templates page of your HA to see all the ent
 The information is formatted in such a way, that it can be used to customize, create groups and views to manage your entities.
 
 
-START --------------------
+```
 The following are the entities that are recognized by the Home Assistant:
 Just add components in the components list below for additional entities.
 
@@ -34,4 +34,4 @@ Just add components in the components list below for additional entities.
 {%- endfor %}
 {%- endfor %}
 
-END --------------------
+```
