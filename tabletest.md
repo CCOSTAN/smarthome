@@ -1,7 +1,10 @@
 <table><tr><th>Automation</th><th>Platform</th><th>Trigger</th><th>Condition</th><th>Action</th><th>Link</th></tr><tr><td>Outdoor Turn Lights ON 15 minutes before sunset</td><td>sun</td><td>
 			sun is below horizon or event is sunset
       offset -15 minutes
-		</td><td><li>None</li></ul></td><td><ul><li>Turn Light(s) ON</li><li>Send an alert</li></ul><ul></td><td>tbd</td></tr><tr><td>Outdoor Turn Lights OFF 15 minutes after sunrise</td><td>sun</td><td>
+		</td><td>
+			Turn Light(s) ON
+      Send an alert
+		</td><td><ul><li>Turn Light(s) ON</li><li>Send an alert</li></ul></td><td>tbd</td></tr><tr><td>Outdoor Turn Lights OFF 15 minutes after sunrise</td><td>sun</td><td>
 			sun is 'above horizon' or event is sunrise
       offset +15 minutes
 		</td><td><li>Every day</li></ul></td><td><ul><li>Turn Light(s) OFF</li></ul><ul></td><td>tbd</td></tr><tr><td>Turn Home Security System ON at Sunset</td><td>Sun</td><td>
@@ -38,19 +41,27 @@
 			motion detected
 		</td><td><li>It is Dark outside</li><li>TV is OFF</li><li>TV Room Lights are OFF</li></ul></td><td><ul><li>Set the light brightness to 100%.</li></ul><ul></td><td>tbd</td></tr><tr><td>NO motion sensed - 1</td><td>state</td><td></td><td><li>It is Dark outside</li><li>TV is ON</li><li>TV Room Lights are ON</li></ul></td><td><ul><li>Turn Lights OFF</li></ul><ul></td><td>tbd</td></tr><tr><td>NO motion sensed - 2</td><td>state</td><td></td><td><li>It is Dark outside</li><li>TV is OFF</li><li>TV Room Lights are ON</li></ul></td><td><ul><li>Turn Lights OFF</li></ul><ul></td><td>tbd</td></tr><tr><td>MQTT Announcements</td><td>MQTT</td><td>
 			When a message arrives in a specific topic
-		</td><td><li>None</li></ul></td><td><ul><li>Read the text, call amazon polly to convert to audio/mp3 and Play the mp3 using media player</li></ul><ul></td><td>tbd</td></tr><tr><td>Check Battery Level of Phone</td><td>numeric_state</td><td>
+		</td><td>
+			Read the text, call amazon polly to convert to audio/mp3 and Play the mp3 using media player
+		</td><td><ul><li>Read the text, call amazon polly to convert to audio/mp3 and Play the mp3 using media player</li></ul></td><td>tbd</td></tr><tr><td>Check Battery Level of Phone</td><td>numeric_state</td><td>
 			Battery level is below 30%
       device_tracker.suresh_suresh
       device_tracker.mallika_mallika
       device_tracker.hasika_hasika
       device_tracker.srinika_srinika
-		</td><td><li>None</li></ul></td><td><ul><li>Send a notification</li></ul><ul></td><td>tbd</td></tr><tr><td>Check Battery Levels of Motion Sensors</td><td>numeric_state</td><td>
+		</td><td>
+			Send a notification
+		</td><td><ul><li>Send a notification</li></ul></td><td>tbd</td></tr><tr><td>Check Battery Levels of Motion Sensors</td><td>numeric_state</td><td>
 			Battery level is below 30%
       upstairs_motion_sensor
       downstairs_motion_sensor
-		</td><td><li>None</li></ul></td><td><ul><li>Send a notification</li></ul><ul></td><td>tbd</td></tr><tr><td>Notify Home Security Status</td><td>state</td><td>
+		</td><td>
+			Send a notification
+		</td><td><ul><li>Send a notification</li></ul></td><td>tbd</td></tr><tr><td>Notify Home Security Status</td><td>state</td><td>
 			Home Alarm system status changed
-		</td><td><li>None</li></ul></td><td><ul><li>Send a notification</li></ul><ul></td><td>tbd</td></tr><tr><td>Home Security</td><td>state</td><td>
+		</td><td>
+			Send a notification
+		</td><td><ul><li>Send a notification</li></ul></td><td>tbd</td></tr><tr><td>Home Security</td><td>state</td><td>
 			Turn ON Home Alarm System when no one home
 		</td><td><li>when all the members of family are "not home"</li></ul></td><td><ul><li>Turn ON home Security System</li></ul><ul></td><td>tbd</td></tr><tr><td>Flash Lights When Someone at the door</td><td>state</td><td>
 			motion detected at the front door
@@ -60,7 +71,9 @@
 			Indoor humidity level is below threshold (30)
 		</td><td><li>When people are home</li></ul></td><td><ul><li>Turn Humidifier On</li><li>Notify that the humidifier is turned ON, and remind to check water level</li></ul><ul></td><td>tbd</td></tr><tr><td>Turn Humidifier OFF automatically</td><td>state</td><td>
 			Indoor humidity level is above threshold (30)
-		</td><td><li>None</li></ul></td><td><ul><li>Turn Dehumidifier ON</li></ul><ul></td><td>tbd</td></tr><tr><td>Notify when someone arrives home</td><td>zone</td><td>
+		</td><td>
+			Turn Dehumidifier ON
+		</td><td><ul><li>Turn Dehumidifier ON</li></ul></td><td>tbd</td></tr><tr><td>Notify when someone arrives home</td><td>zone</td><td>
 			device_tracker.mallika_mallika
       device_tracker.suresh_suresh
       device_tracker.srinika_srinika
@@ -80,9 +93,13 @@
 			group.all_devices
 		</td><td><li>state changed to "not home"</li></ul></td><td><ul><li>Send an alert</li><li>Turn ON Home Security System</li><li>Turn down temperature?</li></ul><ul></td><td>tbd</td></tr><tr><td>Home Assistant Startup</td><td>event</td><td>
 			event_type is homeassistant_start
-		</td><td><li>None</li></ul></td><td><ul><li>Send an alert</li></ul><ul></td><td>tbd</td></tr><tr><td>New Home Assistant Update</td><td>state</td><td>
+		</td><td>
+			Send an alert
+		</td><td><ul><li>Send an alert</li></ul></td><td>tbd</td></tr><tr><td>New Home Assistant Update</td><td>state</td><td>
 			updater.updater
-		</td><td><li>None</li></ul></td><td><ul><li>Send an alert with link to HA</li></ul><ul></td><td>tbd</td></tr><tr><td>Timer enabled smart Switch</td><td>state</td><td>
+		</td><td>
+			Send an alert with link to HA
+		</td><td><ul><li>Send an alert with link to HA</li></ul></td><td>tbd</td></tr><tr><td>Timer enabled smart Switch</td><td>state</td><td>
 			light status is On
 		</td><td><li>for a certain time</li><li>during day time</li></ul></td><td><ul><li>Turn off light</li></ul><ul></td><td>tbd</td></tr><tr><td>Weather - Heavy Wind Alerts</td><td>state</td><td>
 			Entity - sensor.dark_sky_wind_speed
@@ -90,11 +107,16 @@
 			sensor.dark_sky_wind_speed
 		</td><td><li>Wind speed is aboive 40</li></ul></td><td><ul><li>Send an alert to stay indoors</li><li>Announce in the house</li><li>Flash lights</li></ul><ul></td><td>tbd</td></tr><tr><td>Provide Daily Weather Update</td><td>time</td><td>
 			at 7:00 AM
-		</td><td><li>None</li></ul></td><td><ul><li>Send an Alert</li><li>Announce in the house</li></ul><ul></td><td>tbd</td></tr><tr><td>Greet Family Members</td><td>state</td><td>
+		</td><td>
+			Send an Alert
+      Announce in the house
+		</td><td><ul><li>Send an Alert</li><li>Announce in the house</li></ul></td><td>tbd</td></tr><tr><td>Greet Family Members</td><td>state</td><td>
         device_tracker.mallika_mallika
         device_tracker.suresh_suresh
         device_tracker.srinika_srinika
         device_tracker.hasika_hasika
 		</td><td><li>for 2 minutes</li></ul></td><td><ul><li>Announce, Welcome, family member!</li></ul><ul></td><td>tbd</td></tr><tr><td>Z-wave</td><td>time</td><td>
 			at 4:30 in the morning
-		</td><td><li>None</li></ul></td><td><ul><li>Heal Z-Wave network</li></ul><ul></td><td>tbd</td></tr></table>
+		</td><td>
+			Heal Z-Wave network
+		</td><td><ul><li>Heal Z-Wave network</li></ul></td><td>tbd</td></tr></table>
