@@ -1,0 +1,599 @@
+<automations>
+	<automation domain="" url="" name="Outdoor Turn Lights ON 15 minutes before sunset">
+		<description>this is test.
+		</description>
+		<trigger platform="sun">
+			sun is below horizon or event is sunset
+      offset -15 minutes
+		</trigger>
+		<conditions>
+    </conditions>
+		<action>
+			Turn Light(s) ON
+      Send an alert
+		</action>
+	</automation>
+	<automation domain="" url="" name="Outdoor Turn Lights OFF 15 minutes after sunrise">
+		<description>
+		</description>
+		<trigger platform="sun">
+			sun is 'above horizon' or event is sunrise
+      offset +15 minutes
+		</trigger>
+		<conditions>
+			Every day
+		</conditions>
+		<action>
+			Turn Light(s) OFF
+		</action>
+	</automation>
+	<automation domain="" url="" name="Turn Home Security System ON at Sunset">
+		<description>
+		</description>
+		<trigger platform="Sun">
+			event is sunset
+		</trigger>
+		<conditions>
+			Do it only when people are at home
+      Weekdays ONLY
+      Home Security System is Disarmed
+		</conditions>
+		<action>
+			Turn ON Home Security System in 'Home' mode
+      Send an alert
+      Drop a message in the announcement queue
+		</action>
+	</automation>
+	<automation domain="" url="" name="Kitchen Lights on early morning during school days">
+		<description>
+		</description>
+		<trigger platform="time">
+			exactly at 5:30 AM
+		</trigger>
+		<conditions>
+		    Weekdays (mon, tue, wed, thu, fri)
+        Only during school days check (if school days input_boolean is ON)
+		</conditions>
+		<action>
+			turn kitchen lights ON
+		</action>
+	</automation>
+	<automation domain="" url="" name="Master Bedroom lights ON (wife's side)at 5:20">
+		<description>
+		</description>
+		<trigger platform="time">
+			Exactly at 5:20 AM
+		</trigger>
+		<conditions>
+			Only during Weekdays (mon, tue, wed, thu, fri)
+      Only during school days check (if school days input_boolean is ON)
+		</conditions>
+		<action>
+			Turn ON wife's side of the bed lamp at 10% brightness with transition of 1 minute from 0 to 10% brightness
+		</action>
+	</automation>
+	<automation domain="" url="" name="Master Bedroom lights OFF (wife's side)at 5:45">
+		<description>
+		</description>
+		<trigger platform="time">
+			Exactly at 5:45 AM
+		</trigger>
+		<conditions>
+			Only during Weekdays (mon, tue, wed, thu, fri)
+      Only during school days check (if school days input_boolean is ON)
+		</conditions>
+		<action>
+			Turn OFF wife's side of the bed lamp with no transition
+		</action>
+	</automation>
+	<automation domain="" url="" name="Master Bedroom lights ON at 6:59 AM">
+		<description>
+		</description>
+		<trigger platform="time">
+			Exactly at 6:59 AM
+		</trigger>
+		<conditions>
+			Only during Weekdays (mon, tue, wed, thu, fri)
+		</conditions>
+		<action>
+			Turn ON Master Bedroom lights with transition of 2 minutes at 25% brightness
+      Announce daily weather updates, commute to work...etc on home audio system
+		</action>
+	</automation>
+	<automation domain="" url="" name="Master Bedroom Lights OFF at 9:00 AM">
+		<description>
+		</description>
+		<trigger platform="time">
+			Only during Weekdays (mon, tue, wed, thu, fri)
+		</trigger>
+		<conditions>
+			Week days
+		</conditions>
+		<action>
+			Turn off master bedroom lights
+      TODO: Check device_tracker and the location, When Suresh leaves home, turn off master bedroom lights immediately
+		</action>
+	</automation>
+	<automation domain="" url="" name="Turn Kitchen Lights OFF at 8:15 AM">
+		<description>
+		</description>
+		<trigger platform="time">
+			Exactly at 8:15 AM
+		</trigger>
+		<conditions>
+			Everyday - it is usually bright enough in Kitchen at 8:15 AM
+		</conditions>
+		<action>
+			Turn OFF kitchen lights
+		</action>
+	</automation>
+	<automation domain="" url="" name="Dim Kitchen lights 15 minutes before bed time">
+		<description>
+		</description>
+		<trigger platform="time">
+			Exactly at 9:45 PM. (Our bed time is at 10:00 PM)
+		</trigger>
+		<conditions>
+			Make sure the light is ON before dimming
+		</conditions>
+		<action>
+			Turn ON the light and set the brightness of the light to 15%
+		</action>
+	</automation>
+	<automation domain="" url="" name="Turn ON Home Security System at Bedtime">
+		<description>
+		</description>
+		<trigger platform="time">
+			Exactly at 10:00 PM
+		</trigger>
+		<conditions>
+			People MUST be home
+      Home Security System cannot be in AWAY mode
+      Home Security System MUST BE Disarmed
+		</conditions>
+		<action>
+			Turn ON Home Security System in HOME mode
+      Send an alert
+      Make an annnouncement inside the house
+		</action>
+	</automation>
+	<automation domain="" url="" name="Good Night">
+		<description>
+		</description>
+		<trigger platform="time">
+			Exactly at 10:00 PM
+		</trigger>
+		<conditions>
+			TODO: Check for summer hours Vs Winter hours
+		</conditions>
+		<action>
+			Turn OFF Family Room Lights
+      Turn OFF Kitchen Lights
+      Turn OFF Guest Bedroom Lights
+      Turn OFF Master Bedroom Lights
+      Turn OFF Office Room Lights
+      Turn OFF Basement Lights (TBD)
+      KEEP Front yard and Backyard lights for security reasons
+      Play 'Soft Kitty Warm Kitty Little Ball of Fur' Song :)
+		</action>
+	</automation>
+	<automation domain="" url="" name="Motion Detected - 1">
+		<description>
+		</description>
+		<trigger platform="state">
+			motion sensor state changed
+		</trigger>
+		<conditions>
+			It is Dark outside
+      TV is ON
+      TV Room Lights are ON
+		</conditions>
+		<action>
+			Dim TV Lights
+		</action>
+	</automation>
+	<automation domain="" url="" name="Motion Detected - 1">
+		<description>
+		</description>
+		<trigger platform="state">
+			motion sensor state changed
+		</trigger>
+		<conditions>
+			It is Dark outside
+      TV is ON
+      TV Room Lights are ON
+		</conditions>
+		<action>
+			Dim TV Lights
+		</action>
+	</automation>
+	<automation domain="" url="" name="Motion Detected - 1">
+		<description>
+		</description>
+		<trigger platform="state">
+			motion detected
+		</trigger>
+		<conditions>
+			It is Dark outside
+      TV is ON
+      TV Room Lights are ON
+		</conditions>
+		<action>
+			Dim TV Lights
+		</action>
+	</automation>
+	<automation domain="" url="" name="Motion Detected - 2">
+		<description>
+		</description>
+		<trigger platform="state">
+			motion detected
+		</trigger>
+		<conditions>
+			It is Dark outside
+      TV is ON
+      TV Room Lights are OFF
+		</conditions>
+		<action>
+			Dim TV Lights
+		</action>
+	</automation>
+	<automation domain="" url="" name="Motion Detected - 3">
+		<description>
+		</description>
+		<trigger platform="state">
+			motion detected
+		</trigger>
+		<conditions>
+			It is Dark outside
+      TV is OFF
+      TV Room Lights are ON
+		</conditions>
+		<action>
+			Set the light brightness to 100%.
+		</action>
+	</automation>
+	<automation domain="" url="" name="Motion Detected - 4">
+		<description>
+		</description>
+		<trigger platform="state">
+			motion detected
+		</trigger>
+		<conditions>
+			It is Dark outside
+      TV is OFF
+      TV Room Lights are OFF
+		</conditions>
+		<action>
+			Set the light brightness to 100%.
+		</action>
+	</automation>
+	<automation domain="" url="" name="NO motion sensed - 1">
+		<description>
+		</description>
+		<trigger platform="state">
+		</trigger>
+		<conditions>
+			It is Dark outside
+      TV is ON
+      TV Room Lights are ON
+		</conditions>
+		<action>
+			Turn Lights OFF
+		</action>
+	</automation>
+	<automation domain="" url="" name="NO motion sensed - 2">
+		<description>
+		</description>
+		<trigger platform="state">
+		</trigger>
+		<conditions>
+			It is Dark outside
+      TV is OFF
+      TV Room Lights are ON
+		</conditions>
+		<action>
+			Turn Lights OFF
+		</action>
+	</automation>
+	<automation domain="" url="" name="MQTT Announcements">
+		<description>
+		</description>
+		<trigger platform="MQTT">
+			When a message arrives in a specific topic
+		</trigger>
+		<conditions></conditions>
+		<action>
+			Read the text, call amazon polly to convert to audio/mp3 and Play the mp3 using media player
+		</action>
+	</automation>
+	<automation domain="" url="" name="Check Battery Level of Phone">
+		<description>
+		</description>
+		<trigger platform="numeric_state">
+			Battery level is below 30%
+      device_tracker.suresh_suresh
+      device_tracker.mallika_mallika
+      device_tracker.hasika_hasika
+      device_tracker.srinika_srinika
+		</trigger>
+		<conditions>
+		</conditions>
+		<action>
+			Send a notification
+		</action>
+	</automation>
+	<automation domain="" url="" name="Check Battery Levels of Motion Sensors">
+		<description>
+		</description>
+		<trigger platform="numeric_state">
+			Battery level is below 30%
+      upstairs_motion_sensor
+      downstairs_motion_sensor
+		</trigger>
+		<conditions>
+		</conditions>
+		<action>
+			Send a notification
+		</action>
+	</automation>
+	<automation domain="" url="" name="Notify Home Security Status">
+		<description>
+		</description>
+		<trigger platform="state">
+			Home Alarm system status changed
+		</trigger>
+		<conditions>
+		</conditions>
+		<action>
+			Send a notification
+		</action>
+	</automation>	
+	<automation domain="" url="" name="Home Security">
+		<description>
+		</description>
+		<trigger platform="state">
+			Turn ON Home Alarm System when no one home
+		</trigger>
+		<conditions>
+			when all the members of family are "not home"
+		</conditions>
+		<action>
+			Turn ON home Security System
+		</action>
+	</automation>	
+	<automation domain="" url="" name="Flash Lights When Someone at the door ">
+		<description>
+		</description>
+		<trigger platform="state">
+			motion detected at the front door
+		</trigger>
+		<conditions>
+			when people are home
+		</conditions>
+		<action>
+			flash lights
+		</action>
+	</automation>	
+	<automation domain="" url="" name="Play Dog Sounds">
+		<description>
+		</description>
+		<trigger platform="state">
+			motion detected at the front door or back door
+		</trigger>
+		<conditions>
+			when no one at home
+		</conditions>
+		<action>
+			play dog barking sounds
+		</action>
+	</automation>	
+	<automation domain="" url="" name="Turn Humidifier ON automatically">
+		<description>
+		</description>
+		<trigger platform="state">
+			Indoor humidity level is below threshold (30)
+		</trigger>
+		<conditions>
+			When people are home
+		</conditions>
+		<action>
+			Turn Humidifier On
+      Notify that the humidifier is turned ON, and remind to check water level
+		</action>
+	</automation>	
+	<automation domain="" url="" name="Turn Humidifier OFF automatically">
+		<description>
+		</description>
+		<trigger platform="state">
+			Indoor humidity level is above threshold (30)
+		</trigger>
+		<conditions>
+		</conditions>
+		<action>
+			Turn Dehumidifier ON
+		</action>
+	</automation>	
+	<automation domain="" url="" name="Notify when someone arrives home">
+		<description>
+		</description>
+		<trigger platform="zone">
+			device_tracker.mallika_mallika
+      device_tracker.suresh_suresh
+      device_tracker.srinika_srinika
+      device_tracker.hasika_hasika
+		</trigger>
+		<conditions>
+			entered zone
+		</conditions>
+		<action>
+			Send an alert
+		</action>
+	</automation>	
+	<automation domain="" url="" name="Notify when someone arrives home">
+		<description>
+		</description>
+		<trigger platform="zone">
+			device_tracker.mallika_mallika
+      device_tracker.suresh_suresh
+      device_tracker.srinika_srinika
+      device_tracker.hasika_hasika
+		</trigger>
+		<conditions>
+			leave zone
+		</conditions>
+		<action>
+			Send an alert
+		</action>
+	</automation>	
+	<automation domain="" url="" name="Notify when Kids reach school">
+		<description>
+		</description>
+		<trigger platform="zone">
+			device_tracker.srinika_srinika
+      device_tracker.hasika_hasika
+		</trigger>
+		<conditions>
+			enter school zone
+		</conditions>
+		<action>
+			send an alert
+		</action>
+	</automation>	
+	<automation domain="" url="" name="Notify when Kids reach school">
+		<description>
+		</description>
+		<trigger platform="zone">
+			device_tracker.srinika_srinika
+      device_tracker.hasika_hasika
+		</trigger>
+		<conditions>
+			leaves schol zone
+		</conditions>
+		<action>
+			Send an alert
+		</action>
+	</automation>	
+	<automation domain="" url="" name="Alert when everyone is away">
+		<description>
+		</description>
+		<trigger platform="state">
+			group.all_devices
+		</trigger>
+		<conditions>
+			state changed to "not home"
+		</conditions>
+		<action>
+			Send an alert	
+      Turn ON Home Security System
+      Turn down temperature?
+		</action>
+	</automation>	
+	<automation domain="" url="" name="Home Assistant Startup">
+		<description>
+		</description>
+		<trigger platform="event">
+			event_type is homeassistant_start
+		</trigger>
+		<conditions>
+		</conditions>
+		<action>
+			Send an alert
+		</action>
+	</automation>	
+	<automation domain="" url="" name="New Home Assistant Update">
+		<description>
+		</description>
+		<trigger platform="state">
+			updater.updater
+		</trigger>
+		<conditions>
+		</conditions>
+		<action>
+			Send an alert with link to HA
+		</action>
+	</automation>	
+	<automation domain="" url="" name="Timer enabled smart Switch">
+		<description>
+		</description>
+		<trigger platform="state">
+			light status is On
+		</trigger>
+		<conditions>
+			for a certain time
+      during day time
+		</conditions>
+		<action>
+			Turn off light
+		</action>
+	</automation>	
+	<automation domain="" url="" name="Weather - Heavy Wind Alerts">
+		<description>
+		</description>
+		<trigger platform="state">
+			Entity - sensor.dark_sky_wind_speed
+		</trigger>
+		<conditions>
+			Wind speed is aboive 20 and below 40
+		</conditions>
+		<action>
+			Send an alert
+      flash lights
+		</action>
+	</automation>	
+	<automation domain="" url="" name="Weather - Super Heavy Winds">
+		<description>
+		</description>
+		<trigger platform="state">
+			sensor.dark_sky_wind_speed
+		</trigger>
+		<conditions>
+			Wind speed is aboive 40
+		</conditions>
+		<action>
+			Send an alert to stay indoors
+      Announce in the house
+      Flash lights
+		</action>
+	</automation>	
+	<automation domain="" url="" name="Provide Daily Weather Update">
+		<description>
+		</description>
+		<trigger platform="time">
+			at 7:00 AM
+		</trigger>
+		<conditions>
+		</conditions>
+		<action>
+			Send an Alert
+      Announce in the house
+		</action>
+	</automation>	
+	<automation domain="" url="" name="Greet Family Members">
+		<description>
+		</description>
+		<trigger platform="state">
+        device_tracker.mallika_mallika
+        device_tracker.suresh_suresh
+        device_tracker.srinika_srinika
+        device_tracker.hasika_hasika
+		</trigger>
+		<conditions>
+			for 2 minutes
+		</conditions>
+		<action>
+			Announce, Welcome, family member!
+		</action>
+	</automation>	
+	<automation domain="" url="" name="Z-wave">
+		<description>
+		</description>
+		<trigger platform="time">
+			at 4:30 in the morning
+		</trigger>
+		<conditions>
+		</conditions>
+		<action>
+			Heal Z-Wave network
+		</action>
+	</automation>
+</automations>
