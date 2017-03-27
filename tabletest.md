@@ -1,8 +1,8 @@
-<table><tr><th>Automation</th><th>Trigger</th><th>Condition</th><th>Action</th><th>Link</th></tr><tr><td>Outdoor Turn Lights ON 15 minutes before sunset</td><td><ul><li>
- 			sun is below horizon or event is sunset</li><li> offset -15 minutes
- 		</li></ul></td><td>None</td><td>Turn Light(s) ON</td><td>tbd</td></tr><tr><td>Outdoor Turn Lights OFF 15 minutes after sunrise</td><td><ul><li>
- 			sun is 'above horizon' or event is sunrise</li><li> offset +15 minutes
- 		</li></ul></td><td>Every day</td><td>Turn Light(s) OFF</td><td>tbd</td></tr><tr><td>Turn Home Security System ON at Sunset</td><td>
+<table><tr><th>Automation</th><th>Trigger</th><th>Condition</th><th>Action</th><th>Link</th></tr><tr><td>Outdoor Turn Lights ON 15 minutes before sunset</td><td>
+ 			sun is below horizon or event is sunset; offset -15 minutes
+ 		</td><td>None</td><td>Turn Light(s) ON</td><td>tbd</td></tr><tr><td>Outdoor Turn Lights OFF 15 minutes after sunrise</td><td>
+ 			sun is 'above horizon' or event is sunrise; offset +15 minutes
+ 		</td><td>Every day</td><td>Turn Light(s) OFF</td><td>tbd</td></tr><tr><td>Turn Home Security System ON at Sunset</td><td>
  			event is sunset
  		</td><td>Do it only when people are at home;Weekdays ONLY;Home Security System is Disarmed</td><td>Turn ON Home Security System in 'Home' mode;Send an alert;Drop a message in the announcement queue</td><td>tbd</td></tr><tr><td>Kitchen Lights on early morning during school days</td><td>
  			exactly at 5:30 AM
@@ -36,11 +36,11 @@
  			motion detected
  		</td><td>It is Dark outside;TV is OFF;TV Room Lights are OFF</td><td>Set the light brightness to 100%.</td><td>tbd</td></tr><tr><td>NO motion sensed - 1</td><td></td><td>It is Dark outside;TV is ON;TV Room Lights are ON</td><td>Turn Lights OFF</td><td>tbd</td></tr><tr><td>NO motion sensed - 2</td><td></td><td>It is Dark outside;TV is OFF;TV Room Lights are ON</td><td>Turn Lights OFF</td><td>tbd</td></tr><tr><td>MQTT Announcements</td><td>
  			When a message arrives in a specific topic
- 		</td><td>None</td><td>Read the text, call amazon polly to convert to audio/mp3 and Play the mp3 using media player</td><td>tbd</td></tr><tr><td>Check Battery Level of Phone</td><td><ul><li>
- 			Battery level is below 30%</li><li>device_tracker.suresh_suresh</li><li>device_tracker.mallika_mallika</li><li>device_tracker.hasika_hasika</li><li>device_tracker.srinika_srinika
- 		</li></ul></td><td>None</td><td>Send a notification</td><td>tbd</td></tr><tr><td>Check Battery Levels of Motion Sensors</td><td><ul><li>
- 			Battery level is below 30%</li><li>upstairs_motion_sensor</li><li>downstairs_motion_sensor
- 		</li></ul></td><td>None</td><td>Send a notification</td><td>tbd</td></tr><tr><td>Notify Home Security Status</td><td>
+ 		</td><td>None</td><td>Read the text, call amazon polly to convert to audio/mp3 and Play the mp3 using media player</td><td>tbd</td></tr><tr><td>Check Battery Level of Phone</td><td>
+ 			Battery level is below 30%;device_tracker.suresh_suresh;device_tracker.mallika_mallika;device_tracker.hasika_hasika;device_tracker.srinika_srinika
+ 		</td><td>None</td><td>Send a notification</td><td>tbd</td></tr><tr><td>Check Battery Levels of Motion Sensors</td><td>
+ 			Battery level is below 30%;upstairs_motion_sensor;downstairs_motion_sensor
+ 		</td><td>None</td><td>Send a notification</td><td>tbd</td></tr><tr><td>Notify Home Security Status</td><td>
  			Home Alarm system status changed
  		</td><td>None</td><td>Send a notification</td><td>tbd</td></tr><tr><td>Home Security</td><td>
  			Turn ON Home Alarm System when no one home
@@ -52,15 +52,15 @@
  			Indoor humidity level is below threshold (30)
  		</td><td>When people are home</td><td>Turn Humidifier On;Notify that the humidifier is turned ON, and remind to check water level</td><td>tbd</td></tr><tr><td>Turn Humidifier OFF automatically</td><td>
  			Indoor humidity level is above threshold (30)
- 		</td><td>None</td><td>Turn Dehumidifier ON</td><td>tbd</td></tr><tr><td>Notify when someone arrives home</td><td><ul><li>
- 			device_tracker.mallika_mallika</li><li>device_tracker.suresh_suresh</li><li>device_tracker.srinika_srinika</li><li>device_tracker.hasika_hasika
- 		</li></ul></td><td>entered zone</td><td>Send an alert</td><td>tbd</td></tr><tr><td>Notify when someone arrives home</td><td><ul><li>
- 			device_tracker.mallika_mallika</li><li>device_tracker.suresh_suresh</li><li>device_tracker.srinika_srinika</li><li>device_tracker.hasika_hasika
- 		</li></ul></td><td>leave zone</td><td>Send an alert</td><td>tbd</td></tr><tr><td>Notify when Kids reach school</td><td><ul><li>
- 			device_tracker.srinika_srinika</li><li>device_tracker.hasika_hasika
- 		</li></ul></td><td>enter school zone</td><td>send an alert</td><td>tbd</td></tr><tr><td>Notify when Kids reach school</td><td><ul><li>
- 			device_tracker.srinika_srinika</li><li>device_tracker.hasika_hasika
- 		</li></ul></td><td>leaves schol zone</td><td>Send an alert</td><td>tbd</td></tr><tr><td>Alert when everyone is away</td><td>
+ 		</td><td>None</td><td>Turn Dehumidifier ON</td><td>tbd</td></tr><tr><td>Notify when someone arrives home</td><td>
+ 			device_tracker.mallika_mallika;device_tracker.suresh_suresh;device_tracker.srinika_srinika;device_tracker.hasika_hasika
+ 		</td><td>entered zone</td><td>Send an alert</td><td>tbd</td></tr><tr><td>Notify when someone arrives home</td><td>
+ 			device_tracker.mallika_mallika;device_tracker.suresh_suresh;device_tracker.srinika_srinika;device_tracker.hasika_hasika
+ 		</td><td>leave zone</td><td>Send an alert</td><td>tbd</td></tr><tr><td>Notify when Kids reach school</td><td>
+ 			device_tracker.srinika_srinika;device_tracker.hasika_hasika
+ 		</td><td>enter school zone</td><td>send an alert</td><td>tbd</td></tr><tr><td>Notify when Kids reach school</td><td>
+ 			device_tracker.srinika_srinika;device_tracker.hasika_hasika
+ 		</td><td>leaves schol zone</td><td>Send an alert</td><td>tbd</td></tr><tr><td>Alert when everyone is away</td><td>
  			group.all_devices
  		</td><td>state changed to "not home"</td><td>Send an alert	;Turn ON Home Security System;Turn down temperature?</td><td>tbd</td></tr><tr><td>Home Assistant Startup</td><td>
  			event_type is homeassistant_start
