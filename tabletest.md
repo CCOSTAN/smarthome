@@ -2,7 +2,7 @@
 
 |Automation | Trigger | Conditions   | Action | Url Link |
 | --------- | ------- | ------------ | ------ | -------- |
- | Outdoor Turn Lights ON 15 minutes before sunset | Platform = sunDescription: 
+ | Outdoor Turn Lights ON 15 minutes before sunset | 
 			sun is 'below horizon' or event is sunset
 			offset -15 minutes
 		 | 
@@ -10,7 +10,7 @@
 		 | 
 			Turn Light(s) ON
 		 | TBD | 
- | Outdoor Turn Lights OFF 15 minutes after sunrise | Platform = sunDescription: 
+ | Outdoor Turn Lights OFF 15 minutes after sunrise | 
 			sun is 'above horizon' or event is sunrise
 			offset +15 minutes
 		 | 
@@ -18,7 +18,7 @@
 		 | 
 			Turn Light(s) OFF
 		 | TBD | 
- | Turn Home Security System ON at Sunset | Platform = SunDescription: 
+ | Turn Home Security System ON at Sunset | 
 			event is sunset
 		 | 
 			Do it only when people are at home
@@ -29,7 +29,7 @@
 			Send an alert
 			Drop a message in the announcement queue
 		 | TBD | 
- | Kitchen Lights on early morning during school days | Platform = timeDescription: 
+ | Kitchen Lights on early morning during school days | 
 			exactly at 5:30 AM
 		 | 
 		    Weekdays (mon, tue, wed, thu, fri)
@@ -37,7 +37,7 @@
 		 | 
 			turn kitchen lights ON
 		 | TBD | 
- | Master Bedroom lights ON (Mallika side)at 5:20 | Platform = timeDescription: 
+ | Master Bedroom lights ON (Mallika side)at 5:20 | 
 			Exactly at 5:20 AM
 		 | 
 			Only during Weekdays (mon, tue, wed, thu, fri)
@@ -46,7 +46,7 @@
 			Turn ON Mallika's side of the bed lamp at 10% brightness with transition of 1 minute from 0 to 10% brightness
 			Do not disturb Suresh
 		 | TBD | 
- | Master Bedroom lights OFF (Mallika side)at 5:45 | Platform = timeDescription: 
+ | Master Bedroom lights OFF (Mallika side)at 5:45 | 
 			Exactly at 5:45 AM
 		 | 
 			Only during Weekdays (mon, tue, wed, thu, fri)
@@ -55,7 +55,7 @@
 			Turn OFF Mallika's side of the bed lamp with no transition
 			Do not disturb Suresh
 		 | TBD | 
- | Master Bedroom lights ON at 6:59 AM | Platform = timeDescription: 
+ | Master Bedroom lights ON at 6:59 AM | 
 			Exactly at 6:59 AM
 		 | 
 			Only during Weekdays (mon, tue, wed, thu, fri)
@@ -64,7 +64,7 @@
 			Suresh's wake up alarm will go off at 7:00 AM
 			Suresh would like to snooze a couple of times, while he is in bed, make announcements of daily weather, commute to work, temperature on bluetooth speaker
 		 | TBD | 
- | Master Bedroom Lights OFF at 9:00 AM | Platform = timeDescription: 
+ | Master Bedroom Lights OFF at 9:00 AM | 
 			Only during Weekdays (mon, tue, wed, thu, fri)
 		 | 
 			Week days
@@ -72,21 +72,21 @@
 			Suresh is most likely at work, turn off master bed room lights.
 			TODO: Check device_tracker and the location, When Suresh leaves home, turn off master bedroom lights immediately
 		 | TBD | 
- | Turn Kitchen Lights OFF at 8:15 AM | Platform = timeDescription: 
+ | Turn Kitchen Lights OFF at 8:15 AM | 
 			Exactly at 8:15 AM
 		 | 
 			Everyday - it is usually bright enough in Kitchen at 8:15 AM
 		 | 
 			Turn OFF kitchen lights
 		 | TBD | 
- | Dim Kitchen lights 15 minutes before bed time | Platform = timeDescription: 
+ | Dim Kitchen lights 15 minutes before bed time | 
 			Exactly at 9:45 PM. (Our bed time is at 10:00 PM)
 		 | 
 			Make sure the light is ON before dimming
 		 | 
 			Turn ON the light and set the brightness of the light to 15%
 		 | TBD | 
- | Turn ON Home Security System at Bedtime | Platform = timeDescription: 
+ | Turn ON Home Security System at Bedtime | 
 			Exactly at 10:00 PM
 		 | 
 			People MUST be home
@@ -97,7 +97,7 @@
 			Send an alert
 			Make an annnouncement inside the house
 		 | TBD | 
- | Good Night | Platform = timeDescription: 
+ | Good Night | 
 			Exactly at 10:00 PM
 		 | 
 			TODO: Check for summer hours Vs Winter hours
@@ -112,7 +112,7 @@
 			AND
 			Play 'Soft Kitty Warm Kitty Little Ball of Fur' Song :)
 		 | TBD | 
- | Motion Detected - 1 | Platform = stateDescription: 
+ | Motion Detected - 1 | 
 			motion sensor state changed
 		 | 
 			It is Dark outside
@@ -121,7 +121,7 @@
 		 | 
 			Dim TV Lights
 		 | TBD | 
- | Motion Detected - 1 | Platform = stateDescription: 
+ | Motion Detected - 1 | 
 			motion sensor state changed
 		 | 
 			It is Dark outside
@@ -130,7 +130,7 @@
 		 | 
 			Dim TV Lights
 		 | TBD | 
- | Motion Detected - 1 | Platform = stateDescription: 
+ | Motion Detected - 1 | 
 			motion detected
 		 | 
 			It is Dark outside
@@ -139,7 +139,7 @@
 		 | 
 			Dim TV Lights
 		 | TBD | 
- | Motion Detected - 2 | Platform = stateDescription: 
+ | Motion Detected - 2 | 
 			motion detected
 		 | 
 			It is Dark outside
@@ -148,7 +148,7 @@
 		 | 
 			Dim TV Lights
 		 | TBD | 
- | Motion Detected - 3 | Platform = stateDescription: 
+ | Motion Detected - 3 | 
 			motion detected
 		 | 
 			It is Dark outside
@@ -157,7 +157,7 @@
 		 | 
 			Set the light brightness to 100%.
 		 | TBD | 
- | Motion Detected - 4 | Platform = stateDescription: 
+ | Motion Detected - 4 | 
 			motion detected
 		 | 
 			It is Dark outside
@@ -166,28 +166,28 @@
 		 | 
 			Set the light brightness to 100%.
 		 | TBD | 
- | NO motion sensed - 1 | Platform = stateDescription:  | 
+ | NO motion sensed - 1 |  | 
 			It is Dark outside
 			TV is ON
 			TV Room Lights are ON
 		 | 
 			Turn Lights OFF
 		 | TBD | 
- | NO motion sensed - 2 | Platform = stateDescription:  | 
+ | NO motion sensed - 2 |  | 
 			It is Dark outside
 			TV is OFF
 			TV Room Lights are ON
 		 | 
 			Turn Lights OFF
 		 | TBD | 
- | MQTT Announcements | Platform = MQTTDescription: 
+ | MQTT Announcements | 
 			When a message arrives in a specific topic
 		 | 
 			None
 		 | 
 			Read the text, call amazon polly to convert to audio/mp3 and Play the mp3 using media player
 		 | TBD | 
- | Check Battery Level of Phone | Platform = numeric_stateDescription: 
+ | Check Battery Level of Phone | 
 			Battery level is below 30%
 			device_tracker.suresh_suresh
 			device_tracker.mallika_mallika
@@ -198,7 +198,7 @@
 		 | 
 			Send a notification
 		 | TBD | 
- | Check Battery Levels of Motion Sensors | Platform = numeric_stateDescription: 
+ | Check Battery Levels of Motion Sensors | 
 			Battery level is below 30%
 			upstairs_motion_sensor
 			downstairs_motion_sensor
@@ -207,35 +207,35 @@
 		 | 
 			Send a notification
 		 | TBD | 
- | Notify Home Security Status | Platform = stateDescription: 
+ | Notify Home Security Status | 
 			Home Alsrm system status changed
 		 | 
 			None
 		 | 
 			Send a notification
 		 | TBD | 
- | Home Security | Platform = stateDescription: 
+ | Home Security | 
 			Turn ON Home Alarm System when no one home
 		 | 
 			when all the members of family are "not home"
 		 | 
 			Turn ON home Security System
 		 | TBD | 
- | Flash Lights When Someone at the door | Platform = stateDescription: 
+ | Flash Lights When Someone at the door | 
 			motion detected at the front door
 		 | 
 			when people are home
 		 | 
 			flash lights
 		 | TBD | 
- | Play Dog Sounds | Platform = stateDescription: 
+ | Play Dog Sounds | 
 			motion detected at the front door or back door
 		 | 
 			when no one at home
 		 | 
 			play dog barking sounds
 		 | TBD | 
- | Turn Humidifier ON automatically | Platform = stateDescription: 
+ | Turn Humidifier ON automatically | 
 			Indoor humidity level is below threshold (30)
 		 | 
 			When people are home
@@ -243,14 +243,14 @@
 			Turn Humidifier On
 			Notify that the humidifier is turned ON, and remind to check water level
 		 | TBD | 
- | Turn Humidifier OFF automatically | Platform = stateDescription: 
+ | Turn Humidifier OFF automatically | 
 			Indoor humidity level is above threshold (30)
 		 | 
 			None
 		 | 
 			Turn Dehumidifier ON
 		 | TBD | 
- | Notify when someone arrives home | Platform = zoneDescription: 
+ | Notify when someone arrives home | 
 			- device_tracker.mallika_mallika
 			- device_tracker.suresh_suresh
 			- device_tracker.srinika_srinika
@@ -260,7 +260,7 @@
 		 | 
 			Send an alert
 		 | TBD | 
- | Notify when someone arrives home | Platform = zoneDescription: 
+ | Notify when someone arrives home | 
 			- device_tracker.mallika_mallika
 			- device_tracker.suresh_suresh
 			- device_tracker.srinika_srinika
@@ -270,7 +270,7 @@
 		 | 
 			Send an alert
 		 | TBD | 
- | Notify when Kids reach school | Platform = zoneDescription: 
+ | Notify when Kids reach school | 
 			- device_tracker.srinika_srinika
 			- device_tracker.hasika_hasika
 		 | 
@@ -278,7 +278,7 @@
 		 | 
 			send an alert
 		 | TBD | 
- | Notify when Kids reach school | Platform = zoneDescription: 
+ | Notify when Kids reach school | 
 			- device_tracker.srinika_srinika
 			- device_tracker.hasika_hasika
 		 | 
@@ -286,7 +286,7 @@
 		 | 
 			Send an alert
 		 | TBD | 
- | Alert when everyone is away | Platform = stateDescription: 
+ | Alert when everyone is away | 
 			group.all_devices
 		 | 
 			state changed to "not home"
@@ -295,21 +295,21 @@
 			Turn ON Home Security System
 			Turn down temperature?
 		 | TBD | 
- | Home Assistant Startup | Platform = eventDescription: 
+ | Home Assistant Startup | 
 			event_type is homeassistant_start
 		 | 
 			None
 		 | 
 			Send an alert
 		 | TBD | 
- | New Home Assistant Update | Platform = stateDescription: 
+ | New Home Assistant Update | 
 			updater.updater
 		 | 
 			None
 		 | 
 			Send an alert with link to HA
 		 | TBD | 
- | Timer enabled smart Switch | Platform = stateDescription: 
+ | Timer enabled smart Switch | 
 			light status is On
 		 | 
 			for a certain time
@@ -317,7 +317,7 @@
 		 | 
 			Turn off light
 		 | TBD | 
- | Weather - Heavy Wind Alerts | Platform = stateDescription: 
+ | Weather - Heavy Wind Alerts | 
 			Entity - sensor.dark_sky_wind_speed
 		 | 
 			Wind speed is aboive 20 and below 40
@@ -325,7 +325,7 @@
 			Send an alert
 			flash lights
 		 | TBD | 
- | Weather - Super Heavy Winds | Platform = stateDescription: 
+ | Weather - Super Heavy Winds | 
 			sensor.dark_sky_wind_speed
 		 | 
 			Wind speed is aboive 40
@@ -334,7 +334,7 @@
 			Announce in the house
 			Flash lights
 		 | TBD | 
- | Provide Daily Weather Update | Platform = timeDescription: 
+ | Provide Daily Weather Update | 
 			at 7:00 AM
 		 | 
 			None
@@ -342,7 +342,7 @@
 			Send an Alert
 			Announce in the house
 		 | TBD | 
- | Greet Family Members | Platform = stateDescription: 
+ | Greet Family Members | 
         - device_tracker.mallika_mallika
         - device_tracker.suresh_suresh
         - device_tracker.srinika_srinika
@@ -352,7 +352,7 @@
 		 | 
 			Announce, Welcome, family member!
 		 | TBD | 
- | Z-wave | Platform = timeDescription: 
+ | Z-wave | 
 			at 4:30 in the morning
 		 | 
 			None
