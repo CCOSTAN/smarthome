@@ -1,11 +1,12 @@
 <table><tr><th>Automation</th><th>Trigger</th><th>Condition</th><th>Action</th><th>Link</th></tr><tr><td>Outdoor Turn Lights ON 15 minutes before sunset</td><td>
- 			sun is below horizon or event is sunset       offset -15 minutes
+ 			sun is below horizon or event is sunset
+       offset -15 minutes
  		</td><td>None</td><td><ul><li>Turn Light(s) ON</li><li>Send an alert</li></ul></td><td>tbd</td></tr><tr><td>Outdoor Turn Lights OFF 15 minutes after sunrise</td><td>
  			sun is 'above horizon' or event is sunrise
        offset +15 minutes
  		</td><td>Every day</td><td>Turn Light(s) OFF</td><td>tbd</td></tr><tr><td>Turn Home Security System ON at Sunset</td><td>
  			event is sunset
- 		</td><td>Do it only when people are at home       Weekdays ONLY       Home Security System is Disarmed</td><td>Turn ON Home Security System in 'Home' mode       Send an alert       Drop a message in the announcement queue</td><td>tbd</td></tr><tr><td>Kitchen Lights on early morning during school days</td><td>
+ 		</td><td>Do it only when people are at home       Weekdays ONLY       Home Security System is Disarmed</td><td><ul><li>Turn ON Home Security System in 'Home' mode</li><li>Send an alert</li><li>Drop a message in the announcement queue</li></ul></td><td>tbd</td></tr><tr><td>Kitchen Lights on early morning during school days</td><td>
  			exactly at 5:30 AM
  		</td><td>Weekdays (mon, tue, wed, thu, fri)         Only during school days check (if school days input_boolean is ON)</td><td>turn kitchen lights ON</td><td>tbd</td></tr><tr><td>Master Bedroom lights ON (Mallika side)at 5:20</td><td>
  			Exactly at 5:20 AM
