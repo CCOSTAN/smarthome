@@ -1,4 +1,5 @@
 this is a test table.
+
 |Automation Name | Trigger | Condition(s) | Action | Url |
 | --- | --- | --- | --- | --- |
 | Outdoor Turn Lights ON 15 minutes before sunset |  |  |  | 
@@ -42,4 +43,4 @@ this is a test table.
 | Weather - Super Heavy Winds |  |  |  | 
 | Provide Daily Weather Update |  |  |  | 
 | Greet Family Members |  |  |  | 
-| Z-wave |  |  |  | 
+| Z-wave |  |  |  | |
