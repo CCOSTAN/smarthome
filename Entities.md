@@ -10,7 +10,7 @@ The information is formatted in such a way, that it can be used to customize, cr
 The following are the entities that are recognized by the Home Assistant:
 Just add components in the components list below for additional entities.
 
-{%- set domains = [states.light, states.switch, states.automation, states.device_tracker, states.group, states.media_player, states.proximity, states.script, states.zone, states.zwave ] %}
+{%- set domains = [states.light, states.switch, states.automation, states.device_tracker, states.group, states.media_player, states.proximity, states.script, states.zone, states.zwave, states.sensor ] %}
 
 {{ "Entity ID".ljust(50) }}  {{ "Entity Name" }}
 
