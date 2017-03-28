@@ -50,3 +50,5 @@ Just add components in the components list below for additional entities.
 {%- endfor %}
 {%- endfor %}
 ```
+
+todo: {{'icon: '+ state.attributes.icon if state.attributes.icon is defined}}
