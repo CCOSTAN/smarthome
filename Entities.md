@@ -31,8 +31,10 @@ Just add components in the components list below for additional entities.
     unit_of_measurement: {{item.attributes.unit_of_measurement}}
     assumed_state: {{item.attributes.assumed_state}}
     entity_picture: {{item.attributes.entity_picture}}
-    hidden: {{item.attributes.hidden}}
+    hidden: {{item.attributes.hidden if item.attributes.hidden is defined else "False"}}
     last_triggered: {{item.attributes.last_triggered}}
+    emulated_hue: {{item.attributes.emulated_hue if item.attributes.emulated_hue is defined}}
+    homebridge_cover_type: {{item.attributes.homebridge_cover_type if item.attributes.homebridge_cover_type is defined}}
 {%- endfor %}
 {%- endfor %}
 
