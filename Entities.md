@@ -9,16 +9,16 @@ The information is formatted in such a way, that it can be used to customize, cr
 The following are the entities that are recognized by the Home Assistant:
 Just add components in the components list below for additional entities.
 
+{{ "_".ljust(90, "_") }}
 {%- set domains = [states.light, states.switch, states.automation, states.device_tracker, states.group, states.media_player, states.proximity, states.script, states.zone, states.zwave, states.sensor, states.calendar ] %}
 {{ "Entity ID".ljust(50) }}{{ "Entity Name" }}
-
-{%- for domain in domains %}
+{%- for domain in domains -%}
 {% for item in domain %}
 {{ "_".ljust(90, "_") }}
 {{ item.entity_id.ljust(50) }}{{ item.name }}
 {% for attrib in item.attributes %}
 {%- if attrib is defined %} 
-{{attrib.ljust(50)}}: {{ item.attributes[attrib] }} 
+  {{attrib.ljust(50)}}: {{ item.attributes[attrib] }} 
 {%- endif %}
 {%- endfor %}
 {%- endfor %}
